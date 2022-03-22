@@ -28,8 +28,10 @@
 		}	
 
 	}
+	//sends user to their home page for archway
 	if ($flag=="next_level2")	{
-		echo "You successfully logged in!"
+		echo "You successfully logged in!";
+		
 	}
 
 
