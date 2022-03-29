@@ -23,7 +23,7 @@
 <body>
 <section class="vh-100">
     <div class="container py-5 h-100" style="width:50%;">
-            <div class="card" style="align-content: center; align-items: center;">
+            <div class="card" style="align-content: center; align-items: center;;padding:10px;">
             <div class="content">
 
                 <h2 class="title">CNU Archway Login</h2>
@@ -40,7 +40,7 @@
                             <input type="text" name="password" placeholder="password" class="form-control" required>
                         </div>
                     </div>
-                        <button type="button" class="btn btn-dark btn-block mb-4">Sign in</button>
+                        <button type="button" class="btn btn-dark btn-submit btn-block mb-4">Sign in</button>
 
 
                 </form>
