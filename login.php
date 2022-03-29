@@ -12,7 +12,7 @@
 	//user hits submit on login page
 	if(isset($_POST['submit']))	{
 		if ($_POST['uname'] != 01000834)   {
-			echo $_POST['uname']. " is not a valid username!"
+			echo $_POST['uname']. " is not a valid username!";
 			echo " <br> ";
 		} else	{
 			$flag = "next_level";
