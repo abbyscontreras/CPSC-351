@@ -1,26 +1,26 @@
 <?php
-    include('db_connection.php');
-    global $conn;
-    $msg = "";
+include('db_connection.php');
+global $conn;
+$msg = "";
 
-    if (isset($_POST['submit'])) {
-        echo "<pre>";
-        print_r($_POST);
+if (isset($_POST['submit'])) {
+    echo "<pre>";
+    print_r($_POST);
 
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-        $sql = mysqli_query($conn, "select * from login where username = '$username' && password = '$password'");
-        $num = mysqli_num_rows($sql);
-        if ($num>0) {
-            $row=mysqli_fetch_assoc($sql);
-            $_SESSION['USER_ID']=$row['id'];
-            $_SESSION['USER_NAME']=$row['username'];
-            header("location:index.php");
-            echo "Found";
-        } else {
-            $msg = "Please enter valid credentials";
-        }
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $sql = mysqli_query($conn, "select * from login where username = '$username' && password = '$password'");
+    $num = mysqli_num_rows($sql);
+    if ($num>0) {
+        $row=mysqli_fetch_assoc($sql);
+        $_SESSION['USER_ID']=$row['id'];
+        $_SESSION['USER_NAME']=$row['username'];
+        header("location:index.php");
+        echo "Found";
+    } else {
+        $msg = "Please enter valid credentials";
     }
+}
 ?>
 
 <!doctype html>
@@ -62,13 +62,11 @@
                     <div class="form-outline mb-4">
                         <label for="password">Password</label>
                         <div class="box">
-                            <input type="password" name="password" placeholder="password" class="form-control" required>
+                            <input type="text" name="password" placeholder="password" class="form-control" required>
                         </div>
                     </div>
-                        <input type="submit" name="submit" value="Login" class="btn btn-dark btn-submit btn-block mb-4">
-                    <div class="error">
-                        <?php echo $msg?>
-                    </div>
+                        <button type="button" class="btn btn-dark btn-submit btn-block mb-4">Sign in</button>
+
 
                 </form>
             </div>
