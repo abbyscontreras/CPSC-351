@@ -10,7 +10,25 @@ table a{text-decoration:none;color:#303030;
 }
 td{text-align:center;border:1px solid black;background-color:#CCCCCC;padding-left:20px; padding-right:20px;
 }
+td a:hover{
+    background-color:green;
 
+}
+td ul li{
+    display:none;
+}
+td:hover ul li{
+    display:block;
+}
+ul{
+    margin:0px;
+    padding:0px;
+}
+ul li{text-align:left;
+}
+ul li:hover{
+    background-color:green;
+}
 #main-table{margin:auto;padding:40px;
 }
 #main-table td{padding-top:20px;padding-bottom:20px;border-radius:6px;
