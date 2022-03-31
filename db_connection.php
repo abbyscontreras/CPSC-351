@@ -5,7 +5,7 @@ $db_password = 'root';
 $db_db = 'cpsc351finalproject';
 $db_port = 8889;
 
-$mysqli = new mysqli(
+$conn = new mysqli(
     $db_host,
     $db_user,
     $db_password,
@@ -13,18 +13,18 @@ $mysqli = new mysqli(
     $db_port
 );
 
-if ($mysqli->connect_error) {
-    echo 'Errno: '.$mysqli->connect_errno;
+if ($conn->connect_error) {
+    echo 'Errno: '.$conn->connect_errno;
     echo '<br>';
-    echo 'Error: '.$mysqli->connect_error;
+    echo 'Error: '.$conn->connect_error;
     exit();
 }
 
 echo 'Success: A proper connection to MySQL was made.';
 echo '<br>';
-echo 'Host information: '.$mysqli->host_info;
+echo 'Host information: '.$conn->host_info;
 echo '<br>';
-echo 'Protocol version: '.$mysqli->protocol_version;
+echo 'Protocol version: '.$conn->protocol_version;
 
-$mysqli->close();
+//$conn->close();
 ?>
