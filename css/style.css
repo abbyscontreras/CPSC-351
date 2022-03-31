@@ -1,7 +1,8 @@
 body { background-image:linear-gradient(#1E90FF,#FFFAFA);background-repeat:no-repeat; margin:auto;
 }
 
-header{color:#FFFFFF;text-shadow:2px 2px 2px #303030; padding-left:30px;
+header{color:#FFFFFF;text-shadow:2px 2px 2px #303030; padding-left:30px;text-align:center;
+
 }
 
 table{margin:auto;
@@ -10,23 +11,27 @@ table a{text-decoration:none;color:#303030;
 }
 td{text-align:center;border:1px solid black;background-color:#CCCCCC;padding-left:20px; padding-right:20px;
 }
-td a:hover{
-    background-color:green;
+nav{text-align:center;font-size:2em;text-shadow:2px 2px 2px #080808;
+    }
+nav a{text-decoration:none;
 
 }
-td ul li{
-    display:none;
+ul li{display:inline;
 }
-td:hover ul li{
+nav a:hover{
+    background-color:green;
+}
+ul li ul {
+    display:none;position:absolute;
+}
+ul li:hover ul {
     display:block;
 }
-ul{
-    margin:0px;
-    padding:0px;
+ul{margin:0px;padding:0px;
 }
-ul li{text-align:left;
+ul li ul {text-align:left;
 }
-ul li:hover{
+li ul li:hover{
     background-color:green;
 }
 #main-table{margin:auto;padding:40px;
