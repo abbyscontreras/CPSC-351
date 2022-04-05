@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    include('db_connection.php');
+    global $conn;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +15,8 @@
 
 </head>
 <body>
-    <h1>CNU Archway</h1>
+    <h1>Welcome to CNU Archway</h1>
+
+
 </body>
 </html>

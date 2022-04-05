@@ -4,21 +4,22 @@ global $conn;
 $msg = "";
 
 if (isset($_POST['submit'])) {
-    echo "<pre>";
-    print_r($_POST);
+    $user = mysqli_real_escape_string($conn, $_POST['username']);
+    $pass = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $sql = mysqli_query($conn, "select * from login where username = '$username' && password = '$password'");
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = mysqli_query($conn, "select * from login where username = '$user' && password = '$pass'");
     $num = mysqli_num_rows($sql);
-    if ($num>0) {
-        $row=mysqli_fetch_assoc($sql);
+    if ($num > 0) {
+        echo "found";
+        $row = mysqli_fetch_assoc($sql);
         $_SESSION['USER_ID']=$row['id'];
         $_SESSION['USER_NAME']=$row['username'];
-        header("location:index.php");
-        echo "Found";
+        header("Location:index.php");
     } else {
-        $msg = "Please enter valid credentials";
+        $msg = '<div class="alert alert-danger" role="alert"><p>Please enter valid login credentials</p></div>';
     }
 }
 ?>
@@ -52,7 +53,7 @@ if (isset($_POST['submit'])) {
             <div class="content">
 
                 <h2 class="title">CNU Archway Login</h2>
-                <form method="POST" action="">
+                <form method="post" action="">
                     <div class="form-outline mb-4">
                     <label for="username">Username</label>
                     <div class="box">
@@ -62,11 +63,11 @@ if (isset($_POST['submit'])) {
                     <div class="form-outline mb-4">
                         <label for="password">Password</label>
                         <div class="box">
-                            <input type="text" name="password" placeholder="password" class="form-control" required>
+                            <input type="password" name="password" placeholder="password" class="form-control" required>
                         </div>
                     </div>
-                        <button type="button" class="btn btn-dark btn-submit btn-block mb-4">Sign in</button>
-
+                        <button type="submit" class="form-control btn btn-dark btn-submit btn-block mb-4" value ="Login" name="submit">Sign in</button>
+                        <?php echo $msg?>
 
                 </form>
             </div>
@@ -74,5 +75,6 @@ if (isset($_POST['submit'])) {
     </div>
     </div>
 </section>
+
 </body>
 </html>
