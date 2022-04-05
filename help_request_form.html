@@ -8,21 +8,27 @@
 </head>
 <body>
 <header>
-    <h1 style="text-align: center;">Submit a Help Request</h1>
+    <h1 style="text-align: left;">CNU Archway</h1>
 </header>
 
 <main>
-<!--    need to style this into a grid-->
+    <h2>Submit a Help Request</h2>
     <form method="post" action="">
         <label for="toEmail">To:</label>
         <input type="email" name="toEmail" id="toEmail" required>
+        <br><br>
 
         <label for="subjectEmail">Subject:</label>
         <input type="text" name="subjectEmail" id="subjectEmail" required>
+        <br><br>
 
         <label for="userComments">Comments:</label>
         <textarea name="userComments" id="userComments" rows="2" cols="30">
-    </textarea>
+        </textarea>
+        <br><br>
+
+
+        <input type="submit" value="Go Back">
         <input type="submit" value="Submit">
 
     </form>
