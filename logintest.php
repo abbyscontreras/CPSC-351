@@ -1,26 +1,27 @@
 <?php
-    include('db_connection.php');
-    global $conn;
-    $msg = "";
+include('db_connection.php');
+global $conn;
+$msg = "";
 
-    if (isset($_POST['submit'])) {
-        echo "<pre>";
-        print_r($_POST);
+if (isset($_POST['submit'])) {
+    $user = mysqli_real_escape_string($conn, $_POST['username']);
+    $pass = mysqli_real_escape_string($conn, $_POST['password']);
 
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-        $sql = mysqli_query($conn, "select * from login where username = '$username' && password = '$password'");
-        $num = mysqli_num_rows($sql);
-        if ($num>0) {
-            $row=mysqli_fetch_assoc($sql);
-            $_SESSION['USER_ID']=$row['id'];
-            $_SESSION['USER_NAME']=$row['username'];
-            header("location:index.php");
-            echo "Found";
-        } else {
-            $msg = "Please enter valid credentials";
-        }
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = mysqli_query($conn, "select * from login where username = '$user' && password = '$pass'");
+    $num = mysqli_num_rows($sql);
+    if ($num > 0) {
+        echo "found";
+        $row = mysqli_fetch_assoc($sql);
+        $_SESSION['USER_ID']=$row['id'];
+        $_SESSION['USER_NAME']=$row['username'];
+        header("Location:index.php");
+    } else {
+        $msg = '<div class="alert alert-danger" role="alert"><p>Please enter valid login credentials</p></div>';
     }
+}
 ?>
 
 <!doctype html>
@@ -52,7 +53,7 @@
             <div class="content">
 
                 <h2 class="title">CNU Archway Login</h2>
-                <form method="POST" action="">
+                <form method="post" action="">
                     <div class="form-outline mb-4">
                     <label for="username">Username</label>
                     <div class="box">
@@ -65,10 +66,8 @@
                             <input type="password" name="password" placeholder="password" class="form-control" required>
                         </div>
                     </div>
-                        <input type="submit" name="submit" value="Login" class="btn btn-dark btn-submit btn-block mb-4">
-                    <div class="error">
+                        <button type="submit" class="form-control btn btn-dark btn-submit btn-block mb-4" value ="Login" name="submit">Sign in</button>
                         <?php echo $msg?>
-                    </div>
 
                 </form>
             </div>
@@ -76,5 +75,6 @@
     </div>
     </div>
 </section>
+
 </body>
 </html>
