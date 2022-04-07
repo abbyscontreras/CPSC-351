@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Schedule of classes</title>
-</head>
-<body>
+<?php
+include('db_connection.php');
+global $conn;
+include('header.php');
+?>
 <section>
     <table>
         <tr>

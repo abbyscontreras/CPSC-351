@@ -1,13 +1,8 @@
 <?php
+include('db_connection.php');
+global $conn;
+include('header.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
-    <title>Important Notes</title>
-</head>
-<body>
 <h2>Important Notes</h2>
 <table>
     <tr>

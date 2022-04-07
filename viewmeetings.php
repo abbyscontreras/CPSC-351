@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
-    <title>Meetings</title>
-</head>
-<body>
+<?php
+include('db_connection.php');
+global $conn;
+include('header.php');
+?>
 <section>
     <h2>Upcoming Meetings</h2>
     <dl>

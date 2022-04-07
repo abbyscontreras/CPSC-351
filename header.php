@@ -17,7 +17,7 @@ global $conn
 <body>
 <header>
     <div class="head">
-        <img src="../images/logocnu.png"/>
+        <a href="index.php"><img src="../images/logocnu.png"/></a>
         <h1>CNU Archway</h1>
     </div>
 
@@ -27,19 +27,25 @@ global $conn
     <ul>
         <li><a href="advising.html">Advising</a>
             <ul>
-                <li><a href="advisee_list.html">Advisee List</a></li>
-                <li><a href="viewmeetings.html">Meetings</a></li>
-                <li><a href="importantnotes.html">Important Notes</a></li>
+                <li><a href="advisee_list.php">Advisee List</a></li>
+                <li><a href="viewmeetings.php">Meetings</a></li>
+                <li><a href="importantnotes.php">Important Notes</a></li>
             </ul>
         </li>
 
-        <li><a href="registration.html">Registration</a>
+        <li><a href="registration.php">Registration</a>
             <ul>
-                <li><a href="classavailability.html">Class Availability</a></li>
+                <li><a href="classavailability.php">Class Availability</a></li>
             </ul>
 
         </li>
-        <li><a href="account.html">Account</a>
+        <li><a href="account.php">Account</a>
+            <ul>
+                <li><a href="viewprofile.php">Profile</a></li>
+                <li><a href="viewemail.php">Inbox</a></li>
+                <li><a href="gethelp.php">Help</a></li>
+
+            </ul>
         </li>
         <li><a class="logout" href="logout.php">Logout</a>
         </li>
