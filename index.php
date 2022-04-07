@@ -1,22 +1,23 @@
 <?php
-    session_start();
     include('db_connection.php');
     global $conn;
+    include('header.php');
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <h2><a href="logout.php">Logout</a></h2>
+<div id="wrapper">
+    <main>
 
-</head>
-<body>
-    <h1>Welcome to CNU Archway</h1>
+        <table id="main-table">
+            <tr>
+                <td><a href="advisee_list.html">Advisee List</a>&nbsp;</td>
+                <td><a href="majorminor.html">Majors and Minors</a>&nbsp;</td>
+                <td><a href="inbox.html">Inbox</a>&nbsp;</td>
+            </tr>
+        </table>
 
 
+    </main>
+</div>
 </body>
+
 </html>

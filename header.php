@@ -1,3 +1,7 @@
+<?php session_start();
+include('db_connection.php');
+global $conn
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,49 +17,25 @@
 <body>
 <header><h1>CNU Archway</h1></header>
 
+<nav id="header-table">
+    <ul>
+        <li><a href="advising.html">Advising</a>
+            <ul>
+                <li><a href="advisee_list.html">Advisee List</a></li>
+                <li><a href="viewmeetings.html">Meetings</a></li>
+                <li><a href="importantnotes.html">Important Notes</a></li>
+            </ul>
+        </li>
 
-<div class="navbar">
-    <img class="logo-image" src="images/logocnu.png">
-    <div class="dropdown">
-        <button class="dropbtn">Advising</button>
-        <div class="dropdown-content">
-            <a href="#">Advising</a>
-            <a href="#">Meetings</a>
-            <a href="#">Important Notes</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Registration</button>
-        <div class="dropdown-content">
-            <a href="#">Class Availability</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Account</button>
-        <div class="dropdown-content">
-            <a href="#">Profile</a>
-            <a href="#">Inbox</a>
-            <a href="#">Help</a>
-        </div>
-    </div>
-</div>
+        <li><a href="registration.html">Registration</a>
+            <ul>
+                <li><a href="classavailability.html">Class Availability</a></li>
+            </ul>
 
+        </li>
+        <li><a href="account.html">Account</a>
 
+        </li>
 
-<div id="wrapper">
-    <main>
-
-        <table id="main-table">
-            <tr>
-                <td><a href="advisee_list.html">Advisee List</a>&nbsp;</td>
-                <td><a href="majorminor.html">Majors and Minors</a>&nbsp;</td>
-                <td><a href="inbox.html">Inbox</a>&nbsp;</td>
-            </tr>
-        </table>
-
-
-    </main>
-</div>
-</body>
-
-</html>
+    </ul>
+</nav>
