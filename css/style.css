@@ -1,14 +1,30 @@
+
 body {
     background-image: linear-gradient(#1E90FF, #FFFAFA);
     background-repeat: no-repeat;
     margin: auto;
+    font-family: Helvetica, sans-serif;;
 }
-
+.centered {
+    text-align: center;
+    top:30px;
+}
+.head {
+    margin-top:50px;
+}
+.head img {
+    float:left;
+    margin-left: 20px;
+}
+.head h1 {
+    text-align: center;
+    top:20px;
+    font-size:50px;
+}
 header {
     color: #FFFFFF;
     text-shadow: 2px 2px 2px #303030;
-    padding-left: 30px;
-    text-align: center;
+    padding-left: 25px;
 }
 
 table {
@@ -108,3 +124,4 @@ nav ul li ul a:hover {
     box-shadow: 4px 4px 4px #CCCCCC;
     margin: auto;
 }
+

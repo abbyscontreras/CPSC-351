@@ -15,9 +15,15 @@ global $conn
 </head>
 
 <body>
-<header><h1>CNU Archway</h1></header>
+<header>
+    <div class="head">
+        <img src="../images/logocnu.png"/>
+        <h1>CNU Archway</h1>
+    </div>
 
-<nav id="header-table">
+
+    <div class="centered">
+    <nav id="header-table">
     <ul>
         <li><a href="advising.html">Advising</a>
             <ul>
@@ -34,8 +40,12 @@ global $conn
 
         </li>
         <li><a href="account.html">Account</a>
-
+        </li>
+        <li><a class="logout" href="logout.php">Logout</a>
         </li>
 
     </ul>
-</nav>
+    </nav>
+    </div>
+</header>
+

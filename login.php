@@ -44,12 +44,16 @@ if (isset($_POST['submit'])) {
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
     <script src="../js/script.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>Login</title>
 </head>
 <body>
-<header><h1>CNU Archway</h1></header>
+<header>
+    <div class="head">
+        <h1>CNU Archway</h1>
+    </div>
+</header>
 
 <section class="vh-100">
     <div class="container py-5 h-100" style="width:50%;">
