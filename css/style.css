@@ -124,4 +124,13 @@ nav ul li ul a:hover {
     box-shadow: 4px 4px 4px #CCCCCC;
     margin: auto;
 }
+.profileCard {
+    float:none;
+    width:70%;
+    background:grey;
+    margin-top: 75px;
+    margin-left:auto;
+    margin-right: auto;
+    padding:25px;
+}
 
