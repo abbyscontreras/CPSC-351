@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<?php
+include('db_connection.php');
+global $conn;
+include('header.php');
+?>
     <a href="brett.html">brett</a>
     <a href="pat.html">pat</a>
     <a href="jack.html">jack</a>
