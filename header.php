@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 include('db_connection.php');
 global $conn
 ?>
@@ -41,7 +42,7 @@ global $conn
         </li>
         <li><a href="account.php">Account</a>
             <ul>
-                <li><a href="viewprofile.php">Profile</a></li>
+                <li><a href="account.php">Profile</a></li>
                 <li><a href="viewemail.php">Inbox</a></li>
                 <li><a href="gethelp.php">Help</a></li>
 

@@ -1,24 +1,19 @@
 <?php
+session_start();
 include('db_connection.php');
 global $conn;
 $msg = "";
 
 if (isset($_POST['submit'])) {
-    $user = mysqli_real_escape_string($conn, $_POST['username']);
-    $pass = mysqli_real_escape_string($conn, $_POST['password']);
-
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = mysqli_query($conn, "select * from login where username = '$user' && password = '$pass'");
-    $num = mysqli_num_rows($sql);
-    if ($num > 0) {
-        echo "found";
-        $row = mysqli_fetch_assoc($sql);
-        $_SESSION['USER_ID'] = $row['id'];
-        $_SESSION['USER_NAME'] = $row['username'];
+    $sql = mysqli_query($conn, "select * from login where username = '$username' && password = '$password'");
+    $count = mysqli_num_rows($sql);
+    if ($count > 0) {
+        $_SESSION['user'] = $username;
         header("Location:index.php");
-    } else {
+    }else {
         $msg = '<div class="alert alert-danger" role="alert"><p>Please enter valid login credentials</p></div>';
     }
 }
