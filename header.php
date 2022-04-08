@@ -26,7 +26,7 @@ global $conn
     <div class="centered">
     <nav id="header-table">
     <ul>
-        <li><a href="advising.html">Advising</a>
+        <li><a href="advising.php">Advising</a>
             <ul>
                 <li><a href="advisee_list.php">Advisee List</a></li>
                 <li><a href="viewmeetings.php">Meetings</a></li>

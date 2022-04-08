@@ -25,7 +25,7 @@ include('header.php');
     <a href="schedulemeeting.html">Schedule New Meeting</a>
     <a href="updatemeeting.html">Update or Cancel Meeting</a>
     <a href="joinmeeting.html">Join Virtual Meeting</a>
-    <a href="calendar.html">Go to Google Calendar</a>
+    <a href="calendar.php">Go to Google Calendar</a>
 </section>
 
 </body>
