@@ -22,9 +22,9 @@ include('header.php');
     </dl>
 </section>
 <section>
-    <a href="schedulemeeting.html">Schedule New Meeting</a>
-    <a href="updatemeeting.html">Update or Cancel Meeting</a>
-    <a href="joinmeeting.html">Join Virtual Meeting</a>
+    <a href="schedulemeeting.php">Schedule New Meeting</a>
+    <a href="updatemeeting.php">Update or Cancel Meeting</a>
+    <a href="joinmeeting.php">Join Virtual Meeting</a>
     <a href="calendar.php">Go to Google Calendar</a>
 </section>
 
