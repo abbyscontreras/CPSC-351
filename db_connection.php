@@ -1,30 +1,15 @@
 <?php
-$db_host = '127.0.0.1';
-$db_user = 'root';
-$db_password = 'root';
-$db_db = 'cpsc351finalproject';
-$db_port = 8889;
+$servername = "cnuarchway351.ca7hhpahr8lc.us-east-1.rds.amazonaws.com";
+$username = "admin";
+$password = "rootroot";
+$database = 'cpsc251';
 
-$conn = new mysqli(
-    $db_host,
-    $db_user,
-    $db_password,
-    $db_db,
-    $db_port
-);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
 
+// Check connection
 if ($conn->connect_error) {
-    echo 'Errno: '.$conn->connect_errno;
-    echo '<br>';
-    echo 'Error: '.$conn->connect_error;
-    exit();
+    die("Connection failed: " . $conn->connect_error);
 }
-
-//echo 'Success: A proper connection to MySQL was made.';
-//echo '<br>';
-//echo 'Host information: '.$conn->host_info;
-//echo '<br>';
-//echo 'Protocol version: '.$conn->protocol_version;
-
-//$conn->close();
+// echo "Connected successfully";
 ?>
