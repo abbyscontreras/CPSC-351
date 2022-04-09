@@ -5,6 +5,12 @@ $db_password = 'root';
 $db_db = 'cpsc351finalproject';
 $db_port = 8889;
 
+
+
+
+
+
+
 $conn = new mysqli(
     $db_host,
     $db_user,
