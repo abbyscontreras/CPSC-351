@@ -1,24 +1,8 @@
 <?php
-global $msg;
-//session_start();
-//include('db_connection.php');
-//global $conn;
-//$msg = "";
-//
-//if (isset($_POST['submit'])) {
-//    $username = $_POST['username'];
-//    $password = $_POST['password'];
-//
-//    $sql = mysqli_query($conn, "select * from login where username = '$username' && password = '$password'");
-//    $count = mysqli_num_rows($sql);
-//    if ($count > 0) {
-//        $_SESSION['user'] = $username;
-//        header("Location:../index.php");
-//    }else {
-//        $msg = '<div class="alert alert-danger" role="alert"><p>Please enter valid login credentials</p></div>';
-//    }
-//}
-//?>
+include('db_connection.php');
+global $conn;
+$msg = "";
+?>
 
 <!doctype html>
 <html lang="en">
@@ -42,7 +26,7 @@ global $msg;
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 
-    <title>Login</title>
+    <title>Signup</title>
 </head>
 <body>
 <header>
@@ -55,12 +39,36 @@ global $msg;
     <div class="container py-5 h-100" style="width:50%;">
         <div class="card" style="align-content: center; align-items: center;padding:10px;">
             <div class="content">
-                <h2 class="title" style="text-align: center">Login</h2>
-                <form method="post" action="../incognito/login.inc.php">
-                    <div class="form-outline mb-4">
-                        <label for="username">Username</label>
+                <h2 class="title" style="text-align: center">Advisor Signup</h2>
+                <form method="post" action="../CPSC-351/incognito/signup.inc.php">
+                    <div class="form-outline mb-3">
+                        <label for="username">Faculty ID</label>
                         <div class="box">
                             <input type="text" name="username" placeholder="username" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-3">
+                        <label for="firstname">First Name</label>
+                        <div class="box">
+                            <input type="text" name="firstname" placeholder="firstname" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-3">
+                        <label for="lastname">Last Name</label>
+                        <div class="box">
+                            <input type="text" name="lastname" placeholder="lastname" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-3">
+                        <label for="email">Email</label>
+                        <div class="box">
+                            <input type="email" name="email" placeholder="email" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-3">
+                        <label for="phone">Phone</label>
+                        <div class="box">
+                            <input type="tel" name="phone" placeholder="phone" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-outline mb-4">
@@ -70,10 +78,11 @@ global $msg;
                                    required>
                         </div>
                     </div>
-                    <button type="submit" class="form-control btn btn-dark btn-submit btn-block mb-4" value="Login"
-                            name="login">Sign in
+                    <button type="submit" name="register" class="form-control btn btn-dark btn-submit btn-block mb-4" value="Login"
+                            name="submit">Sign up
                     </button>
-                    <p class="mb-5 pb-lg-2">Don't have an account? <a href="signup.php">Sign up here</a>
+                    <p class="mb-5 pb-lg-2">Already have an account? <a href="login.php">Sign in here</a>
+
                         <?php echo $msg ?>
                 </form>
             </div>
