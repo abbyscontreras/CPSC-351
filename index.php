@@ -6,7 +6,6 @@
 ?>
 <div id="wrapper">
     <main>
-
         <table id="main-table">
             <tr>
                 <td><a href="advisee_list.php">Advisee List</a>&nbsp;</td>
@@ -14,8 +13,6 @@
                 <td><a href="inbox.html">Inbox</a>&nbsp;</td>
             </tr>
         </table>
-
-
     </main>
 </div>
 </body>

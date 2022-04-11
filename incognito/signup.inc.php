@@ -10,7 +10,7 @@ if (isset($_POST['register'])) {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
     $sql_prof = "INSERT INTO professor (facultyID, first_name, last_name, email, phoneNumber) VALUES ('$username', '$firstname','$lastname','$email','$phone')";
-    $sql_reg = "INSERT INTO registrar (email, password) VALUES ('$username', '$password')";
+    $sql_reg = "INSERT INTO registrar (fk_facultyID, email, password) VALUES ('$username', '$email','$password')";
 
     if (mysqli_query($conn, $sql_prof) and (mysqli_query($conn, $sql_reg))) {
         session_start();

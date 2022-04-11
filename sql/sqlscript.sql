@@ -41,11 +41,17 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`Student` (
 DROP TABLE IF EXISTS `cpsc351`.`registrar` ;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`registrar` (
+    `fk_facultyID` INT(8) NOT NULL,
     `semester_term` VARCHAR(45) NOT NULL,
     `semester_year` INT(4) NOT NULL,
     `email` VARCHAR(45) NOT NULL,
     `password` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`semester_term`, `semester_year`),
+    CONSTRAINT `fk_professor_facultyID`
+    FOREIGN KEY (`fk_facultyID`)
+        REFERENCES `cpsc351`.`professor` (`facultyID`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
     ENGINE = InnoDB;
 
@@ -324,3 +330,8 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+-- -----------------------------------------------------
+-- Insert Statements
+-- -----------------------------------------------------
+insert into registrar values (00123456, 'Spring', 2021,'michael.lapke@cnu.edu', 'lapkepass');
+insert into professor values (00123456, 'Yes','Michael','Lapke','michael.lapke@cnu.edu','(757) 594-8921','Luter Hall 331', 'Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before joining the CNU family.','CPSC 350 and CPSC 351');
