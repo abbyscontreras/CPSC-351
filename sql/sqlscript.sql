@@ -333,5 +333,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 -- Insert Statements
 -- -----------------------------------------------------
-insert into registrar values (00123456, 'Spring', 2021,'michael.lapke@cnu.edu', 'lapkepass');
 insert into professor values (00123456, 'Yes','Michael','Lapke','michael.lapke@cnu.edu','(757) 594-8921','Luter Hall 331', 'Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before joining the CNU family.','CPSC 350 and CPSC 351');
+insert into registrar values (00123456, 'Spring', 2021,'michael.lapke@cnu.edu', 'lapkepass');
+
+insert into professor values (101010, 'Yes','DBA','Admin','dbaadmin@cnu.edu','(111) 111-1111','Admin', 'Admin','Admin');
+insert into registrar values (101010, 'Spring', 2022,'dbaadmin@cnu.edu', 'admin');

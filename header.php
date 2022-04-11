@@ -46,7 +46,7 @@ global $conn
                     <ul>
                         <li><a href="profileinfo.php">Profile</a></li>
                         <li><a href="viewemail.php">Inbox</a></li>
-                        <li><a href="gethelp.php">Help</a></li>
+                        <li><a href="help.php">Help</a></li>
 
                     </ul>
                 </li>

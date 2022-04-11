@@ -12,7 +12,7 @@ global $conn;
             <?php
             if (isset($_SESSION['user'])) {
                 $user = $_SESSION['user'];
-                $sql = mysqli_query($conn, "select * from professor where facultyID='123456'");
+                $sql = mysqli_query($conn, "select * from professor where facultyID='$user'");
                 while ($row = mysqli_fetch_array($sql)) {
                     $fname = $row['first_name'];
                     $lname = $row['last_name'];
@@ -30,7 +30,7 @@ global $conn;
                 <?php
                 if (isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $sql = mysqli_query($conn, "select * from professor where facultyID='123456'");
+                    $sql = mysqli_query($conn, "select * from professor where facultyID='$user'");
                     while ($row = mysqli_fetch_array($sql)) {
                         $bio = $row['biography'];
                         echo $bio;
@@ -43,7 +43,7 @@ global $conn;
                 <?php
                 if (isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $sql = mysqli_query($conn, "select * from professor where facultyID='123456'");
+                    $sql = mysqli_query($conn, "select * from professor where facultyID='$user'");
                     while ($row = mysqli_fetch_array($sql)) {
                         $courses = $row['courses_teaching'];
                         echo $courses;
@@ -56,12 +56,15 @@ global $conn;
                 <?php
                 if (isset($_SESSION['user'])) {
                     $user = $_SESSION['user'];
-                    $sql = mysqli_query($conn, "select * from professor where facultyID='123456'");
+                    $sql = mysqli_query($conn, "select * from professor where facultyID='$user'");
                     while ($row = mysqli_fetch_array($sql)) {
                         $office = $row['office'];
                         $phone = $row['phoneNumber'];
                         $email = $row['email'];
-//                        echo <p>Office: Luter Hall 331<br></p>
+                        echo "Office: ". $office . "<br>";
+                        echo "Phone: " . $phone . "<br>";
+                        echo "Email: " . $email . "<br>";
+
 //            <p>Phone: (757) 594-8921</p>
 //            <p>Email: michael.lapke@cnu.edu</p>;
                     }
@@ -74,16 +77,11 @@ global $conn;
 <!--                <li>MS in Computer and Information Science, University of North Floria</li>-->
 <!--                <li>PhD in Information Systems, Virginia Commonwealth University</li>-->
 <!--            </ul>-->
-            <h3>Prior Teaching Experience</h3>
-            <p>Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before
-                joining the CNU family.
-            </p>
-            <h3>Currently Teaching</h3>
-            <p>CPSC 350 and CPSC 351</p>
-            <h3>Contact Information</h3>
-            <p>Office: Luter Hall 331<br></p>
-            <p>Phone: (757) 594-8921</p>
-            <p>Email: michael.lapke@cnu.edu</p>
+<!--            <h3>Prior Teaching Experience</h3>-->
+<!--            <p>Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before-->
+<!--                joining the CNU family.-->
+<!--            </p>-->
+
         </section>
     </main>
 </div>

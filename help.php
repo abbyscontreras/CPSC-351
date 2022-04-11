@@ -1,57 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
-    <title>Help</title>
-
-</head>
+<?php
+//include('db_connection.php');
+//global $conn;
+include('header.php');
+global $conn;
+?>
 <body>
-    <header>
-        <h1 style="text-align: center;">HELP PAGE</h1>
-    </header>
-    <table id="header-table">
-        <tr>
-            <td>
-                <a href="advising.php">Advising</a> &nbsp;&nbsp;</button>
-                <ul>
-                    <li>Advisee List</li>
-                    <li>Meetings</li>
-                    <li>Important Notes</li>
-                </ul>
-            </td>
-            <td><a href="registration.php">Registration</a>
-                <ul>
-                    <li>Class Availability</li>
-                </ul>
-                &nbsp;&nbsp;</td>
-            <td><a href="account.php">Account</a> &nbsp;&nbsp;</td>
-    </table>
-    <div id="wrapper">
-<main>
-    <dl>
-        <dt><h3>Problems related to your CNU Connect Password</h3></dt>
-        <dd>Please contact the Customer Service Desk at <a href="tel:7575947079">(757)-594-7079</a>, stop by the 24/7 room
-            in Trible Library, visit us in Ratcliffe Hall, or email us at <a href="mailto: ITService@cnu.edu">ITService@cnu.edu</a>.</dd>
-
-        <dt><h3>Student General Information</h3></dt>
-        <dd>Please contact the Office of the Registrar via email at <a href="mailto: register@cnu.edu">register@cnu.edu</a>, via telephone
-            at  <a href="tel:7575947155">(757)-594-7155</a>, or by visiting us at our office, located in Christopher Newport Hall. Our
-            hours of operation are Monday - Friday, 8 a.m. - 5 p.m.
-            <p>**Note: if you are a currently enrolled student, please include your CNU Student ID when corresponding via email or phone. </p>
-        </dd>
-
-        <dt><h3>Faculty General Information</h3></dt>
-        <dd>Please contact the Office of the Registrar via email at <a href="mailto: register@cnu.edu">register@cnu.edu</a>, via telephone
-            at  <a href="tel:7575947155">(757)-594-7155</a>, or by visiting us at our office, located in Christopher Newport Hall. Our
-            hours of operation are Monday - Friday, 8 a.m. - 5 p.m.
-            <p>**Note: if you are a currently enrolled student, please include your CNU Student ID when corresponding via email or phone. </p>
-        </dd>
-    </dl>
-
-    <h3>**Button that takes you to new page** Click here to submit a help request!</h3>
-
-</main>
-
+<div id="wrapper">
+    <main>
+        <section>
+            <h4>Problems related to your CNU Archway Password</h4>
+            <p>Please contact Customer Support at (757) 594-7079, stop by the 24/7 room in the Trible Library, visit us in Ratcliffe Hall or email us at ITService@cnu.edu</p>
+            <h4>Student General Information</h4>
+            <p>Please contact the Office of the Registrar via email at register@cnu.edu, via telephone at (757) 594-7155, or by visiting us on the first floor of Christopher Newport Hall Monday through Friday, 8 a.m. - 5 p.m.</p>
+            <h4>Faculty General Information</h4>
+            <p>Please contact the Office of the Registrar via email at register@cnu.edu, via telephone at (757) 594-7155, or by visiting us on the first floor of Christopher Newport Hall Monday through Friday, 8 a.m. - 5 p.m.</p>
+            <p>Note: if you are a faculty please include your CNU ID number when corresponding via email or voice mail.</p>
+        </section>
+    </main>
+</div>
 </body>
 </html>
