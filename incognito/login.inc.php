@@ -12,6 +12,8 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result);
         if ($row['fk_facultyID'] === $username && $row['password'] === $password) {
             echo "Logged in!";
+            $_SESSION['user'] = $username;
+            $user = $_SESSION['user'];
             header('Location:../CPSC-351/index.php');
         } else {
             $msg = '<div class="alert alert-danger" role="alert"><p>Please enter valid login credentials</p></div>';
