@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`professor` (
     `office` VARCHAR(45) NOT NULL,
     `biography` VARCHAR(500) NOT NULL,
     `courses_teaching` VARCHAR(500) NOT NULL,
+    `professor_img` blob,
     PRIMARY KEY (`facultyID`),
     UNIQUE INDEX `facultyID_UNIQUE` (`facultyID` ASC) VISIBLE,
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
@@ -330,10 +331,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 -- Insert Statements
 -- -----------------------------------------------------
-insert into professor values (00123456, 'Yes','Michael','Lapke','michael.lapke@cnu.edu','(757) 594-8921','Luter Hall 331', 'Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before joining the CNU family.','CPSC 350 and CPSC 351');
+insert into professor values (00123456, 'Yes','Michael','Lapke','michael.lapke@cnu.edu','(757) 594-8921','Luter Hall 331', 'Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before joining the CNU family.','CPSC 350 and CPSC 351', LOAD_FILE('/Users/abigailcontreras/PhpstormProjects/CPSC-351/images/lapke_cnu_profile_picture.jpeg'));
 insert into registrar values (00123456,'michael.lapke@cnu.edu', 'lapkepass');
 
-insert into professor values (101010, 'Yes','DBA','Admin','dbaadmin@cnu.edu','(111) 111-1111','Admin', 'Admin','Admin');
+insert into professor values (101010, 'Yes','DBA','Admin','dbaadmin@cnu.edu','(111) 111-1111','Admin', 'Admin','Admin','');
 insert into registrar values (101010,'dbaadmin@cnu.edu', 'admin');
 
 insert into Student values (975829, 'Abigail', 'Contreras', 'abigail.contreras.19@cnu.edu', 'Fall 2019', 'Spring 2022','PCSE','Information Science', 'Business Administration', '123456');

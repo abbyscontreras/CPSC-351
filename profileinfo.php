@@ -17,7 +17,7 @@ global $conn;
                         $fname = $row['first_name'];
                         $lname = $row['last_name'];
                         echo $fname . " " . $lname;
-//                        echo '<img src="data:image;base64,' . base64_encode($row['img_dir']) . 'alt="Image">';
+                        echo '<img src="data:image;base64,' . base64_encode($row['professor_img']) . 'alt="Image">';
                     }
                 }
                 ?></h1>
@@ -83,6 +83,9 @@ global $conn;
                 <!--            </p>-->
 
         </section>
+        <a href="updateprofile.php">
+            <button name="update" class="btn">Update Profile</button>
+        </a>
     </main>
 </div>
 </body>
