@@ -6,7 +6,9 @@ include('header.php');
 ?>
 <div id="wrapper">
     <main>
-        <a href="help.php"><button name="goBack" class="btn">Go Back</button></a>
+        <a href="help.php">
+            <button name="goBack" class="btn">Go Back</button>
+        </a>
         <h2>Submit a Help Request</h2>
         <form method="post" action="">
             <label for="toEmail">To:</label>

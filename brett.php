@@ -53,21 +53,21 @@
             </tr>
         </table>
         <div id="student_notes">
-        <h3>Notes:</h3>
+            <h3>Notes:</h3>
             <ul>
                 <li>Transferred from Franklin and Marshall College</li>
                 <li>Considering fifth year</li>
                 <li>Credits aren’t an issue - Course completion is <b>PRIORITY</b></li>
             </ul>
-        <h3>Upcoming meetings</h3>
-        <p><b>October 15, 2021</b><br>
-            12:30pm-1:00pm<br>
-            Spring Advising (virtual)</p>
-        <h3>Specific notes:</h3>
-        <p>Meeting Date: October 15, 2021
-            Topic: Spring Advising
-            Notes: Missing prerequisite courses for CPSC 445WI - needs to take ENGL 223, move to next semester
-            Overall is on track for graduation Considering a fifth year</p>
+            <h3>Upcoming meetings</h3>
+            <p><b>October 15, 2021</b><br>
+                12:30pm-1:00pm<br>
+                Spring Advising (virtual)</p>
+            <h3>Specific notes:</h3>
+            <p>Meeting Date: October 15, 2021
+                Topic: Spring Advising
+                Notes: Missing prerequisite courses for CPSC 445WI - needs to take ENGL 223, move to next semester
+                Overall is on track for graduation Considering a fifth year</p>
         </div>
     </div>
 </main>

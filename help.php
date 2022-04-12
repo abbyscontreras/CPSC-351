@@ -23,7 +23,9 @@ global $conn;
             <p>Note: if you are a faculty please include your CNU ID number when corresponding via email or voice
                 mail.</p>
         </section>
-        <a href="help_request_form.php"><button name="help" class="btn">Submit a Help Request</button></a>
+        <a href="help_request_form.php">
+            <button name="help" class="btn">Submit a Help Request</button>
+        </a>
 
     </main>
 </div>

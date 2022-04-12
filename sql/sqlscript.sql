@@ -48,11 +48,9 @@ DROP TABLE IF EXISTS `cpsc351`.`registrar` ;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`registrar` (
     `fk_facultyID` INT(8) NOT NULL,
-    `semester_term` VARCHAR(45) NOT NULL,
-    `semester_year` INT(4) NOT NULL,
     `email` VARCHAR(45) NOT NULL,
     `password` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`semester_term`, `semester_year`),
+    PRIMARY KEY (`fk_facultyID`),
     CONSTRAINT `fk_professor_facultyID_2`
     FOREIGN KEY (`fk_facultyID`)
         REFERENCES `cpsc351`.`professor` (`facultyID`)
@@ -71,20 +69,15 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`studentPin` (
                                                    `pin_number` INT NOT NULL,
                                                    `advising_semester` VARCHAR(45) NOT NULL,
     `Student_student_ID` INT(8) NOT NULL,
-    `registrar_semester_term` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`pin_number`, `Student_student_ID`, `registrar_semester_term`),
+    `semester_term` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`pin_number`, `Student_student_ID`, `semester_term`),
     INDEX `fk_studentPin_Student_idx` (`Student_student_ID` ASC) VISIBLE,
-    INDEX `fk_studentPin_registrar1_idx` (`registrar_semester_term` ASC) VISIBLE,
+    INDEX `fk_studentPin_registrar1_idx` (`semester_term` ASC) VISIBLE,
     UNIQUE INDEX `pin_number_UNIQUE` (`pin_number` ASC) VISIBLE,
     UNIQUE INDEX `Student_student_ID_UNIQUE` (`Student_student_ID` ASC) VISIBLE,
     CONSTRAINT `fk_studentPin_Student`
     FOREIGN KEY (`Student_student_ID`)
     REFERENCES `cpsc351`.`Student` (`student_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-    CONSTRAINT `fk_studentPin_registrar1`
-    FOREIGN KEY (`registrar_semester_term`)
-    REFERENCES `cpsc351`.`registrar` (`semester_term`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
@@ -126,8 +119,6 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`advisingMeeting` (
     PRIMARY KEY (`Student_student_ID`, `professor_facultyID`, `meetDateTIme`),
     INDEX `fk_advisingMeeting_Student1_idx` (`Student_student_ID` ASC) VISIBLE,
     INDEX `fk_advisingMeeting_professor1_idx` (`professor_facultyID` ASC) VISIBLE,
-    UNIQUE INDEX `Student_student_ID_UNIQUE` (`Student_student_ID` ASC) VISIBLE,
-    UNIQUE INDEX `professor_facultyID_UNIQUE` (`professor_facultyID` ASC) VISIBLE,
     UNIQUE INDEX `meetDateAndTIme_UNIQUE` (`meetDateTIme` ASC) VISIBLE,
     CONSTRAINT `fk_advisingMeeting_Student1`
     FOREIGN KEY (`Student_student_ID`)
@@ -340,12 +331,22 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Insert Statements
 -- -----------------------------------------------------
 insert into professor values (00123456, 'Yes','Michael','Lapke','michael.lapke@cnu.edu','(757) 594-8921','Luter Hall 331', 'Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before joining the CNU family.','CPSC 350 and CPSC 351');
-insert into registrar values (00123456, 'Spring', 2021,'michael.lapke@cnu.edu', 'lapkepass');
+insert into registrar values (00123456,'michael.lapke@cnu.edu', 'lapkepass');
 
 insert into professor values (101010, 'Yes','DBA','Admin','dbaadmin@cnu.edu','(111) 111-1111','Admin', 'Admin','Admin');
-insert into registrar values (101010, 'Spring', 2022,'dbaadmin@cnu.edu', 'admin');
+insert into registrar values (101010,'dbaadmin@cnu.edu', 'admin');
 
 insert into Student values (975829, 'Abigail', 'Contreras', 'abigail.contreras.19@cnu.edu', 'Fall 2019', 'Spring 2022','PCSE','Information Science', 'Business Administration', '123456');
 insert into Student values (976980, 'Jack', 'McDonald', 'jack.mcdonald.19@cnu.edu', 'Fall 2019', 'Spring 2023','PCSE','Information Science', 'Business Administration', '123456');
 
+-- View Meetings
 insert into advisingMeeting values ('2022-04-21 12:00:00', 'Virtual','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-04-21 12:30:00', 'In Person','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-04-21 01:00:00', 'In Person','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-03-21 12:00:00', 'Virtual','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-03-21 12:30:00', 'In Person','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-03-21 01:00:00', 'Virtual','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-02-21 12:00:00', 'Virtual','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-02-21 12:30:00', 'In Person','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-02-21 01:00:00', 'Virtual','Advising', 975829, 123456);
+insert into advisingMeeting values ('2022-02-21 01:30:00', 'Virtual','Advising', 975829, 123456);

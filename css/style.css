@@ -150,3 +150,19 @@ section {
     border-radius: 5px;
     cursor: pointer;
 }
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.grid-item {
+    padding: 5px;
+    /*border: 1px solid black;*/
+}
+.btn-group {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.btn-group .btn {
+    margin: 0 auto;
+    align-content: center;
+}
