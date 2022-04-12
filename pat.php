@@ -53,7 +53,7 @@ include('header.php');
         <p>Meeting Date: October 15, 2021
             Topic: Spring Advising
             Notes: Missing prerequisite courses busn 303, taking the pre req over the summer.
-            Overall is on track for graduation
+            Overall is on track for graduation.
 
         </p>
     </div>
