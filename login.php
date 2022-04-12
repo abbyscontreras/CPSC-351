@@ -1,24 +1,6 @@
 <?php
 global $msg;
-//session_start();
-//include('db_connection.php');
-//global $conn;
-//$msg = "";
-//
-//if (isset($_POST['submit'])) {
-//    $username = $_POST['username'];
-//    $password = $_POST['password'];
-//
-//    $sql = mysqli_query($conn, "select * from login where username = '$username' && password = '$password'");
-//    $count = mysqli_num_rows($sql);
-//    if ($count > 0) {
-//        $_SESSION['user'] = $username;
-//        header("Location:../index.php");
-//    }else {
-//        $msg = '<div class="alert alert-danger" role="alert"><p>Please enter valid login credentials</p></div>';
-//    }
-//}
-//?>
+?>
 
 <!doctype html>
 <html lang="en">
