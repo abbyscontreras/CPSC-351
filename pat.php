@@ -6,7 +6,7 @@ include('header.php');
 ?>
 <div id="wrapper">
     <h2>Patrick Tehan</h2>
-    <!--  <img src ="">-->
+    <img src="images/tehan_cnu_profile_picture.JPG" alt="Patrick Tehan">
     <table>
         <tr>
             <th></th>
