@@ -1,7 +1,7 @@
 <?php
-    include('db_connection.php');
-    global $conn;
-    include('header.php');
+include('db_connection.php');
+global $conn;
+include('header.php');
 
 ?>
 <div id="wrapper">

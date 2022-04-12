@@ -78,7 +78,8 @@ $msg = "";
                                    required>
                         </div>
                     </div>
-                    <button type="submit" name="register" class="form-control btn btn-dark btn-submit btn-block mb-4" value="Login"
+                    <button type="submit" name="register" class="form-control btn btn-dark btn-submit btn-block mb-4"
+                            value="Login"
                             name="submit">Sign up
                     </button>
                     <p class="mb-5 pb-lg-2">Already have an account? <a href="login.php">Sign in here</a>

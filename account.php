@@ -8,9 +8,9 @@ include('header.php');
     <main>
         <table id="main-table">
             <tr>
-                <td><a href="advisee_list.php">Advisee List</a>&nbsp;</td>
-                <td><a href="viewmeetings.php">Meetings</a>&nbsp;</td>
-                <td><a href="importantnotes.php">Important Notes</a>&nbsp;</td>
+                <td><a href="profileinfo.php">Profile</a>&nbsp;</td>
+                <td><a href="inbox.php">Inbox</a>&nbsp;</td>
+                <td><a href="help.php">Help</a>&nbsp;</td>
             </tr>
         </table>
     </main>

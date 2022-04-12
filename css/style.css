@@ -124,7 +124,7 @@ nav ul li ul a:hover {
     box-shadow: 4px 4px 4px #CCCCCC;
     margin-left: auto;
     margin-right: auto;
-    min-height: 300px;
+    min-height: 450px;
 }
 .profileCard {
     float:none;
@@ -135,4 +135,6 @@ nav ul li ul a:hover {
     margin-right: auto;
     padding:25px;
 }
-
+section {
+    padding:15px;
+}
