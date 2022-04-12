@@ -7,6 +7,7 @@ include('header.php');
 <div id="wrapper">
     <h2>Abby Contreras</h2>
     <!--  <img src ="">-->
+    <p> image</p>
     <table>
         <tr>
             <th></th>
