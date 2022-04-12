@@ -5,9 +5,11 @@ include('header.php');
 
 ?>
 <div id="wrapper">
-    <h2>Jack Mcdonald</h2>
-    <!--  <img src ="">-->
-    <table>
+    <div id="namepic">
+    <h2>Jack McDonald</h2>
+    <img class="profile" src="images/jackprofile.jpg">
+
+    <table class="profiletable">
         <tr>
             <th></th>
             <th></th>
@@ -38,8 +40,9 @@ include('header.php');
             <td></td>
         </tr>
     </table>
-
+    </div>
     <div id="student_notes">
+
         <h1>Notes:</h1>
         <p>on track to graduate in the spring
         </p>
