@@ -7,7 +7,7 @@ include('header.php');
 <div id="wrapper">
     <div id="namepic">
     <h2>Jack McDonald</h2>
-    <img class="profile" src="images/jackprofile.jpg">
+        <img class="profile" src="images/mcdonald_cnu_profile_picture.jpg" alt="Jack McDonald">
 
     <table class="profiletable">
         <tr>

@@ -171,5 +171,7 @@ section {
 #namepic{display:grid;
     grid-template-columns:20% 80%;
 }
-#profiletable{font-size:40px;}
-.profile {float:left;grid-column:1/2;}
+#profiletable th,td {font-size:20px;
+}
+.profile {float:left;grid-column:1/2;
+}
