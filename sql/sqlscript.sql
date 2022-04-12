@@ -29,7 +29,13 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`Student` (
     `department` VARCHAR(100) NULL,
     `major` VARCHAR(45) NULL,
     `minor` VARCHAR(45) NULL,
+    `fk_facultyID` INT(8) NOT NULL,
     PRIMARY KEY (`student_ID`),
+    CONSTRAINT `fk_professor_facultyID`
+    FOREIGN KEY (`fk_facultyID`)
+    REFERENCES `cpsc351`.`professor` (`facultyID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
     UNIQUE INDEX `student_ID_UNIQUE` (`student_ID` ASC) VISIBLE,
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
     ENGINE = InnoDB;
@@ -47,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`registrar` (
     `email` VARCHAR(45) NOT NULL,
     `password` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`semester_term`, `semester_year`),
-    CONSTRAINT `fk_professor_facultyID`
+    CONSTRAINT `fk_professor_facultyID_2`
     FOREIGN KEY (`fk_facultyID`)
         REFERENCES `cpsc351`.`professor` (`facultyID`)
         ON DELETE NO ACTION
@@ -338,3 +344,8 @@ insert into registrar values (00123456, 'Spring', 2021,'michael.lapke@cnu.edu', 
 
 insert into professor values (101010, 'Yes','DBA','Admin','dbaadmin@cnu.edu','(111) 111-1111','Admin', 'Admin','Admin');
 insert into registrar values (101010, 'Spring', 2022,'dbaadmin@cnu.edu', 'admin');
+
+insert into Student values (975829, 'Abigail', 'Contreras', 'abigail.contreras.19@cnu.edu', 'Fall 2019', 'Spring 2022','PCSE','Information Science', 'Business Administration', '123456');
+insert into Student values (976980, 'Jack', 'McDonald', 'jack.mcdonald.19@cnu.edu', 'Fall 2019', 'Spring 2023','PCSE','Information Science', 'Business Administration', '123456');
+
+insert into advisingMeeting values ('2022-04-21 12:00:00', 'Virtual','Advising', 975829, 123456);

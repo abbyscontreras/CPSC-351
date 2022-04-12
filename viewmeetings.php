@@ -8,6 +8,20 @@ include('header.php');
         <section>
             <h2>Upcoming Meetings</h2>
             <dl>
+                <?php
+                if (isset($_SESSION['user'])) {
+                    $user = $_SESSION['user'];
+                    $sql = mysqli_query($conn, "select * from advisingMeeting where professor_facultyID='$user' and meetDateTIme > CURRENT_TIMESTAMP()");
+                    while ($row = mysqli_fetch_array($sql)) {
+                        $studentID = $row['Student_student_ID'];
+                        $subject = $row['meetSubject'];
+                        $location = $row['meetLocation'];
+                        $dateTime = $row['meetDateTIme'];
+                        echo "<dt>". $studentID." - ".$subject.": ".$location. "</dt>";
+                        echo "<dd>". $dateTime."</dd>";
+                    }
+                }
+                ?>
                 <dt>Patrick Tehan: Current Semester Advising (virtual)</dt>
                 <dd>January 14, 2022 2:00-2:30pm</dd>
                 <dt>Jack McDonald: Fall Advising (in person)</dt>
@@ -19,6 +33,20 @@ include('header.php');
             </dl>
             <h2>Past Meetings</h2>
             <dl>
+                <?php
+                if (isset($_SESSION['user'])) {
+                    $user = $_SESSION['user'];
+                    $sql = mysqli_query($conn, "select * from advisingMeeting where professor_facultyID='$user' and meetDateTIme < CURRENT_TIMESTAMP()");
+                    while ($row = mysqli_fetch_array($sql)) {
+                        $studentID = $row['Student_student_ID'];
+                        $subject = $row['meetSubject'];
+                        $location = $row['meetLocation'];
+                        $dateTime = $row['meetDateTIme'];
+                        echo "<dt>". $studentID." - ".$subject.": ".$location. "</dt>";
+                        echo "<dd>". $dateTime."</dd>";
+                    }
+                }
+                ?>
                 <dt>Brett Kropinski: Spring Advising (virtual)</dt>
                 <dd>October 15, 2021 12:30-1:00pm</dd>
             </dl>

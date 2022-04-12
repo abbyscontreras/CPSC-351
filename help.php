@@ -8,6 +8,7 @@ global $conn;
 <div id="wrapper">
     <main>
         <section>
+            <h2>Help Page</h2>
             <h4>Problems related to your CNU Archway Password</h4>
             <p>Please contact Customer Support at (757) 594-7079, stop by the 24/7 room in the Trible Library, visit us
                 in Ratcliffe Hall or email us at ITService@cnu.edu</p>
@@ -22,6 +23,8 @@ global $conn;
             <p>Note: if you are a faculty please include your CNU ID number when corresponding via email or voice
                 mail.</p>
         </section>
+        <a href="help_request_form.php"><button name="help" class="btn">Submit a Help Request</button></a>
+
     </main>
 </div>
 </body>

@@ -135,6 +135,18 @@ nav ul li ul a:hover {
     margin-right: auto;
     padding:25px;
 }
+main {
+    padding: 25px;
+}
 section {
     padding:15px;
+}
+.btn {
+    background-color: dimgrey;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }
