@@ -5,13 +5,16 @@ include('header.php');
 
 ?>
 <div id="wrapper">
+    <div id="namepic"
     <h2>Patrick Tehan</h2>
-    <img src="images/tehan_cnu_profile_picture.JPG" alt="Patrick Tehan">
-    <table>
+        <img class="profile" src="images/tehan_cnu_profile_picture.jpg" alt="Patrick Tehan">
+
+    <table class="profiletable">
         <tr>
             <th></th>
             <th></th>
         </tr>
+
         <tr>
             <td>ID:</td>
             <td>00970886</td>
