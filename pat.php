@@ -3,7 +3,34 @@ include('db_connection.php');
 global $conn;
 include('header.php');
 
+
+$user = $_SESSION['user'];
+$fname='';
+$lname='';
+$studentID='';
+$email='';
+$entry_year='';
+$expected_graduation='';
+$major='';
+$minor='';
+$sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user'");
+
+while ($row = mysqli_fetch_array($sql)) {
+    $fname = $row['first_name'];
+    $lname = $row['last_name'];
+    $studentID = $row['student_ID'];
+    $email= $row['email'];
+    $entry_year = $row['entry_year'];
+    $expected_graduation = $row['expected_graduation'];
+    $major = $row['major'];
+    $minor = $row['minor'];
+
+
+}
+
 ?>
+
+
 <div id="wrapper">
     <div id="namepic"
     <h2>Patrick Tehan</h2>
