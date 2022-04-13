@@ -3,7 +3,7 @@ include('db_connection.php');
 global $conn;
 include('header.php');
 $user = $_SESSION['user'];
-if (isset($_POST['update'])) {
+if (isset($_POST['Update'])) {
     $advisorStatus = $_POST['advisorStatus'];
     $email = $_POST['Email'];
     $phone = $_POST['Phone'];
