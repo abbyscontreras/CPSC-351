@@ -3,10 +3,35 @@ include('db_connection.php');
 global $conn;
 include('header.php');
 
+
+$user = $_SESSION['user'];
+$fname='';
+$lname='';
+$studentID='';
+$email='';
+$entry_year='';
+$expected_graduation='';
+$major='';
+$minor='';
+$sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user'");
+
+    while ($row = mysqli_fetch_array($sql)) {
+        $fname = $row['first_name'];
+        $lname = $row['last_name'];
+        $studentID = $row['student_ID'];
+        $email= $row['email'];
+        $entry_year = $row['entry_year'];
+        $expected_graduation = $row['expected_graduation'];
+        $major = $row['major'];
+        $minor = $row['minor'];
+
+
+}
+
 ?>
 <div id="wrapper">
     <div id="namepic">
-    <h2>Jack McDonald</h2>
+    <h2><?php echo $fname. " " . $lname ?></h2>
         <img class="profile" src="images/mcdonald_cnu_profile_picture.jpg" alt="Jack McDonald">
 
     <table class="profiletable">
@@ -17,27 +42,27 @@ include('header.php');
 
         <tr>
             <td>ID:</td>
-            <td>00970887</td>
+            <td><?php echo $studentID ?></td>
         </tr>
         <tr>
             <td>E-mail:</td>
-            <td><a href="mailto:jack.mcdonald.19@cnu.edu">jack.mcdonald.19@cnu.edu</a></td>
+            <td><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a> </td>
         </tr>
         <tr>
             <td>Entry Year:</td>
-            <td>Fall 2019</td>
+            <td><?php echo $entry_year ?></td>
         </tr>
         <tr>
             <td>Expected Graduation:</td>
-            <td>Spring 2023</td>
+            <td><?php echo $expected_graduation ?></td>
         </tr>
         <tr>
             <td>Major</td>
-            <td>Information Science</td>
+            <td><?php echo $major ?></td>
         </tr>
         <tr>
             <td>Minor</td>
-            <td></td>
+            <td><?php echo $minor ?></td>
         </tr>
     </table>
     </div>
