@@ -12,7 +12,7 @@ if (isset($_POST['Update'])) {
 
 }
 //  $sql = mysqli_query($conn, "select * from advisingMeeting where Student_student_ID='$student_ID'");
-    $sql="SELECT student_ID,meetDateTIme FROM Student order by student_ID";
+    $sql="SELECT student_ID FROM Student order by student_ID";
     echo "<select name=studentID value=''>Student ID</option>";
     foreach ($sql->query($sql) as $row){
         echo "<option value=$row[student_id]>$row[name]</option>";
