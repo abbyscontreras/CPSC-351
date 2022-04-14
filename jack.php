@@ -13,7 +13,9 @@ $entry_year='';
 $expected_graduation='';
 $major='';
 $minor='';
-$sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user'");
+$id = $_GET['student_select'];
+
+$sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user' and student_ID='$id'");
 
     while ($row = mysqli_fetch_array($sql)) {
         $fname = $row['first_name'];
