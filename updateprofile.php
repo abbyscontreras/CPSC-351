@@ -11,26 +11,57 @@ if (isset($_POST['Update'])) {
     $bio = $_POST['Bio'];
     $courses = $_POST['Courses'];
     $img = $_POST['Img'];
-    $sql = "update professor set advisorStatus = '$advisorStatus', email = '$email' , phoneNumber = '$phone', office = '$office', biography = '$bio', courses_teaching = '$courses', professor_img = '$img' where facultyID = '$user'";
-    if (mysqli_query($conn, $sql)) {
-        echo "<h3>data stored in a database successfully.</h3>";
-    } else {
-        echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($conn);
+//    $sql = "update professor set advisorStatus = '$advisorStatus', email = '$email' , phoneNumber = '$phone', office = '$office', biography = '$bio', courses_teaching = '$courses', professor_img = '$img' where facultyID = '$user'";
+//    if (mysqli_query($conn, $sql)) {
+//        echo "<h3>data stored in a database successfully.</h3>";
+//    } else {
+//        echo "ERROR: Hush! Sorry $sql. "
+//            . mysqli_error($conn);
+//    }
+
+    $sql = "UPDATE professor SET ";
+    if(!empty($advisorStatus)) {
+        $sql .= "advisorStatus= '$advisorStatus',";
     }
+    if(!empty($email)) {
+        $sql .= "email= '$email',";
+    }
+    if(!empty($phone)) {
+        $sql .= "phonNumber= '$phone',";
+    }
+    if(!empty($office)) {
+        $sql .= "office= '$office',";
+    }
+    if(!empty($bio)) {
+        $sql .= "biography= '$bio',";
+    }
+    if(!empty($courses)) {
+        $sql .= "courses_teaching= '$courses',";
+    }
+    if(!empty($img)) {
+        $sql .= "professor_img= '$img',";
+    }
+
+// strip off any extra commas on the end
+    $sql = rtrim($sql, ',');
+
+    $sql .= "WHERE facultyID = '$user'";
+    if (mysqli_query($conn, $sql)) {
+            echo "<h3>data stored in a database successfully.</h3>";
+        } else {
+            echo "ERROR: Hush! Sorry $sql. "
+                . mysqli_error($conn);
+        }
 }
 ?>
 <div id="wrapper">
     <main>
-        <a href="profileinfo.php">
-            <button name="goBack" class="btn">Go Back</button>
-        </a>
         <h2>Update Profile</h2>
         <form method="post" action="">
             <p>Are you an advisor?</p>
-            <input type="radio" name="advisorStatus" id="advisorStatus">
+            <input type="radio" name="advisorStatus" id="advisorStatus" value="yes">
             <label for="advisorStatus">Yes</label>
-            <input type="radio" name="advisorStatus" id="advisorStatus">
+            <input type="radio" name="advisorStatus" id="advisorStatus" value="no">
             <label for="advisorStatus">No</label>
             <br><br>
 
@@ -58,10 +89,12 @@ if (isset($_POST['Update'])) {
             <input type="file" name="Img" id="Img">
             <br><br>
 
-
-            <button name="Update" type="submit" class="btn">Submit Request</button>
+            <button name="Update" type="submit" class="btn">Update Profile</button>
 
         </form>
+        <a href="profileinfo.php">
+            <button name="goBack" class="btn">Go Back</button>
+        </a>
     </main>
 </div>
 </body>

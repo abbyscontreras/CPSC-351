@@ -351,3 +351,28 @@ insert into advisingMeeting values ('2022-02-21 12:00:00', 'Virtual','Advising',
 insert into advisingMeeting values ('2022-02-21 12:30:00', 'In Person','Advising', 975829, 123456);
 insert into advisingMeeting values ('2022-02-21 01:00:00', 'Virtual','Advising', 975829, 123456);
 insert into advisingMeeting values ('2022-02-21 01:30:00', 'Virtual','Advising', 975829, 123456);
+
+
+insert into professor values (987654, 'Yes','Albus','Dumbledore','albus.dumbledore@cnu.edu','(234) 456-6789','Luter Hall 101', 'Hogwarts Headmaster.','Wizardry 101', LOAD_FILE('/Users/abigailcontreras/PhpstormProjects/CPSC-351/images/lapke_cnu_profile_picture.jpeg'));
+insert into registrar values (987654,'albus.dumbledore@cnu.edu', 'wizard');
+insert into Student values (63725, 'Harry', 'Potter', 'harry.potter.19@cnu.edu', 'Fall 2019', 'Spring 2022','PCSE','Information Science', 'Spanish', '987654');
+insert into Student values (16239, 'Ron', 'Weasley', 'ron.weasley.19@cnu.edu', 'Fall 2019', 'Spring 2023','PCSE','Information Science', 'Computer Science', '987654');
+insert into Student values (293846, 'Hermione', 'Granger', 'hermione.granger.19@cnu.edu', 'Fall 2019', 'Spring 2023','PCSE','Information Science', 'Computer Science', '987654');
+insert into Student values (26349, 'Luna', 'Lovegood', 'luna.lovegood.19@cnu.edu', 'Fall 2019', 'Spring 2023','PCSE','Information Science', 'Graphic Arts', '987654');
+
+insert into advisingMeeting values ('2022-03-12 12:00:00', 'Virtual','Advising', 63725, 987654);
+insert into advisingMeeting values ('2022-02-01 12:30:00', 'In Person','Advising', 63725, 987654);
+insert into advisingMeeting values ('2022-12-21 01:00:00', 'In Person','Advising', 16239, 987654);
+insert into advisingMeeting values ('2022-09-23 12:00:00', 'Virtual','Advising', 16239, 987654);
+insert into advisingMeeting values ('2022-07-21 12:30:00', 'In Person','Advising', 293846, 987654);
+insert into advisingMeeting values ('2022-11-08 01:00:00', 'Virtual','Advising', 293846, 987654);
+insert into advisingMeeting values ('2022-07-21 12:00:00', 'Virtual','Advising', 293846, 987654);
+insert into advisingMeeting values ('2022-06-27 12:30:00', 'In Person','Advising', 26349, 987654);
+insert into advisingMeeting values ('2022-04-05 01:00:00', 'Virtual','Advising', 26349, 987654);
+insert into advisingMeeting values ('2022-01-20 01:30:00', 'Virtual','Advising', 26349, 987654);
+
+select * from advisingMeeting where professor_facultyID='$user' and meetDateTIme < CURRENT_TIMESTAMP() order by meetDateTime DESC;
+SELECT advisingMeeting.*, Student.first_name, Student.last_name
+FROM advisingMeeting
+         INNER JOIN Student ON advisingMeeting.Student_student_ID=Student.student_ID
+WHERE advisingMeeting.professor_facultyID ='$user' and advisingMeeting.meetDateTIme < CURRENT_TIMESTAMP() order by advisingMeeting.meetDateTime DESC;
