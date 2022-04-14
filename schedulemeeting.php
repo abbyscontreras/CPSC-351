@@ -28,6 +28,3 @@ include('header.php');
         </form>
     </main>
 </div>
-
-</body>
-</html>

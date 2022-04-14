@@ -97,6 +97,3 @@ if (isset($_POST['Update'])) {
         </a>
     </main>
 </div>
-</body>
-
-</html>

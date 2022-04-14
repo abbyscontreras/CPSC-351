@@ -55,5 +55,4 @@ include('header.php');
             Notes: Missing Capstone, other wise ready to go.
             Overall is on track for graduation</p>
     </div>
-
 </div>
