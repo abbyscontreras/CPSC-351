@@ -5,15 +5,31 @@ include('header.php');
 
 $user = $_SESSION['user'];
 if (isset($_POST['Update'])) {
+    $student_ID = $_POST['StudentID'];
+    $meetDateTIme = $_POST['Date/Time'];
     $meetLocation = $_POST['Location'];
+    $meetSubject = $_POST['Subject'];
 
 }
-if (isset($_POST['StudentID'])) {
-    $sql="SELECT ,id  FROM Student";
-    $sql = "UPDATE advisingMeeting SET ";
-    foreach ($dbo->query($sql) as $row) {
-        echo "$row[id] , $row[name]<br>";
+//  $sql = mysqli_query($conn, "select * from advisingMeeting where Student_student_ID='$student_ID'");
+    $sql="SELECT student_ID,meetDateTIme FROM Student order by student_ID";
+    echo "<select name=studentID value=''>Student ID</option>";
+    foreach ($sql->query($sql) as $row){
+        echo "<option value=$row[student_id]>$row[name]</option>";
     }
+    echo "</select>";
+if (isset($_POST['StudentID'])) {
+    $sql = "UPDATE advisingMeeting SET ";
+    if(!empty($meetDateTIme)) {
+        $sql .= "Date/Time= '$meetDateTIme',";
+    }
+    if(!empty($meetLocation)) {
+        $sql .= "Location= '$meetLocation',";
+    }
+    if(!empty($meetSubject)) {
+        $sql .= "Subject= '$meetSubject',";
+    }
+    $sql = rtrim($sql, ',');
 }
 ?>
 <div id="wrapper">
