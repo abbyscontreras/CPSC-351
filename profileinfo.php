@@ -4,7 +4,6 @@
 include('header.php');
 global $conn;
 ?>
-<body>
 <div id="wrapper">
     <main>
         <section>
@@ -73,5 +72,3 @@ global $conn;
         </a>
     </main>
 </div>
-</body>
-</html>

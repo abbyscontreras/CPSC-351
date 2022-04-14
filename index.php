@@ -14,10 +14,5 @@
                 <td><a href="inbox.html">Inbox</a>&nbsp;</td>
             </tr>
         </table>
-
-
     </main>
 </div>
-</body>
-
-</html>

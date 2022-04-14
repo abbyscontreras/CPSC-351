@@ -29,8 +29,6 @@ while ($row = mysqli_fetch_array($sql)) {
 }
 
 ?>
-
-
 <div id="wrapper">
     <div id="namepic"
     <h2>Patrick Tehan</h2>

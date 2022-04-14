@@ -13,6 +13,3 @@ include('header.php');
         </table>
     </main>
 </div>
-</body>
-
-</html>
