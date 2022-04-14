@@ -82,5 +82,4 @@ $sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user'");
             Notes: Missing Capstone, other wise ready to go.
             Overall is on track for graduation</p>
     </div>
-
 </div>

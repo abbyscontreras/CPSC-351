@@ -62,11 +62,7 @@ include('header.php');
                         ?>
                     </dl>
                 </div>
-
             </div>
         </section>
     </main>
 </div>
-
-</body>
-</html>

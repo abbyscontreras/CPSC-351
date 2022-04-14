@@ -30,6 +30,3 @@ if (isset($_POST["help"])) {
         </a>
     </main>
 </div>
-</body>
-
-</html>

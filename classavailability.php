@@ -48,5 +48,3 @@ include('header.php');
         </section>
     </main>
 </div>
-</body>
-</html>
