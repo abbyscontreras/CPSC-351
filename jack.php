@@ -13,9 +13,15 @@ $entry_year='';
 $expected_graduation='';
 $major='';
 $minor='';
+$notes='';
+$date_time='';
+$meeting_time='';
+$meeting_location='';
+$meeting_subject='';
 $id = $_GET['student_select'];
-
+$sqlnotes =mysqli_query($conn, "select * from advisingNotes where advisingMeeting_professor_facultyID='$user' and advisingMeeting_Student_student_ID='$id'");
 $sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user' and student_ID='$id'");
+$sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_facultyID='$user' and Student_student_ID='$id'");
 
     while ($row = mysqli_fetch_array($sql)) {
         $fname = $row['first_name'];
@@ -29,6 +35,13 @@ $sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user' and
 
 
 }
+
+    while ($row =mysqli_fetch_array($sqlnotes)){
+        $notes = $row['meetNotes'];
+        $date_time = $row['dateAndTime'];
+    }
+
+
 
 ?>
 <div id="wrapper">
@@ -71,15 +84,26 @@ $sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user' and
     <div id="student_notes">
 
         <h1>Notes:</h1>
-        <p>on track to graduate in the spring
+        <p><?php echo $date_time." - ". $notes ?>
         </p>
         <h2>Upcoming meetings</h2>
-        <p>Spring Advising (virtual)
+        <p>Date & Time:      | Location: | Subject: |<br>
+            <?php
+            while ($row =mysqli_fetch_array($sqlmeeting)){
+                $meeting_time = $row['meetDateTIme'];
+                $meeting_location= $row['meetLocation'];
+                $meeting_subject = $row['meetSubject'];
+                echo $meeting_time." | (".$meeting_location .") | ".$meeting_subject."<br>";
+            }
+            ?>
+
+            Spring Advising (virtual)
             October 15, 2021
             12:30pm-1:00pm
         </p>
         <h3>specific notes:</h3>
-        <p>Meeting Date: October 15, 2021
+        <p>
+            Meeting Date: October 15, 2021
             Topic: Spring Advising
             Notes: Missing Capstone, other wise ready to go.
             Overall is on track for graduation</p>
