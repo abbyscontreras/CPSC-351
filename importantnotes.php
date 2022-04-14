@@ -5,13 +5,26 @@ include('header.php');
 ?>
 <div id="wrapper">
     <main>
-        <h2>Important Notes</h2>
+        <h2>Meeting Important Notes</h2>
         <table>
             <tr>
-                <th>Topic</th>
+                <th>Student</th>
                 <th>Date</th>
                 <th>Notes</th>
             </tr>
+            <?php
+            $user = $_SESSION['user'];
+            $sql = mysqli_query($conn, "Select advisingNotes.*, Student.first_name, Student.last_name from advisingNotes inner join Student on advisingNotes.advisingMeeting_Student_student_ID where advisingMeeting_professor_facultyID='$user'");
+            while ($row = mysqli_fetch_array($sql)) {
+                echo "<tr><td>";
+                echo $row['first_name']." ".$row['last_name'];
+                echo "</td><td>";
+                echo $row['dateAndTime'];
+                echo "</td><td>";
+                echo $row['meetNotes'];
+                echo "</td></tr>";
+            }
+            ?>
             <tr>
                 <td>Student: Jack McDonald</td>
                 <td>1/14/22</td>

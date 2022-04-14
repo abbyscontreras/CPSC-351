@@ -146,8 +146,6 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`advisingNotes` (
     `advisingMeeting_professor_facultyID` INT(8) NOT NULL,
     PRIMARY KEY (`dateAndTime`, `advisingMeeting_Student_student_ID`, `advisingMeeting_professor_facultyID`),
     INDEX `fk_advisingNotes_advisingMeeting1_idx` (`advisingMeeting_Student_student_ID` ASC, `advisingMeeting_professor_facultyID` ASC) VISIBLE,
-    UNIQUE INDEX `advisingMeeting_Student_student_ID_UNIQUE` (`advisingMeeting_Student_student_ID` ASC) VISIBLE,
-    UNIQUE INDEX `advisingMeeting_professor_facultyID_UNIQUE` (`advisingMeeting_professor_facultyID` ASC) VISIBLE,
     CONSTRAINT `fk_advisingNotes_advisingMeeting1`
     FOREIGN KEY (`advisingMeeting_Student_student_ID` , `advisingMeeting_professor_facultyID`)
     REFERENCES `cpsc351`.`advisingMeeting` (`Student_student_ID` , `professor_facultyID`)
@@ -376,3 +374,15 @@ SELECT advisingMeeting.*, Student.first_name, Student.last_name
 FROM advisingMeeting
          INNER JOIN Student ON advisingMeeting.Student_student_ID=Student.student_ID
 WHERE advisingMeeting.professor_facultyID ='$user' and advisingMeeting.meetDateTIme < CURRENT_TIMESTAMP() order by advisingMeeting.meetDateTime DESC;
+
+
+Select distinct advisingNotes.*, Student.first_name, Student.last_name from advisingNotes
+inner join Student on advisingNotes.advisingMeeting_Student_student_ID
+where advisingMeeting_professor_facultyID='123456';
+
+select * from advisingNotes;
+
+
+
+ALTER TABLE advisingNotes
+    DROP FOREIGN KEY advisingMeeting_professor_facultyID_UNIQUE;
