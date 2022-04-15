@@ -93,8 +93,9 @@ $sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_
                 $meeting_time = $row['meetDateTIme'];
                 $meeting_location= $row['meetLocation'];
                 $meeting_subject = $row['meetSubject'];
-                echo $meeting_time." | (".$meeting_location .") | ".$meeting_subject."<br>";
+                echo '<div>'.$meeting_time." | (".$meeting_location .") | ".$meeting_subject;
             }
+                echo '</div>';
             ?>
 
             Spring Advising (virtual)
