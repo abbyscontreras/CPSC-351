@@ -32,3 +32,9 @@ if (isset($_POST["help"])) {
         </a>
     </main>
 </div>
+
+<?php
+if (isset($_POST['userComments'])) {
+    echo '<script>alert("Your help request has been submitted.")</script>';
+}
+?>
