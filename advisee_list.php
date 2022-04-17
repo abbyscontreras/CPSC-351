@@ -3,15 +3,9 @@ include('db_connection.php');
 global $conn;
 include('header.php');
 ?>
-
-
 <main>
     <div id="wrapper">
-
         <h1>My Advisees</h1>
-
-
-
         <p>
             <?php
 
@@ -28,13 +22,7 @@ include('header.php');
                 }
             }
             ?>
-
         </p>
-
-
-
-
-
     </div>
 </main>
 

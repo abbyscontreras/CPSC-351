@@ -22,7 +22,6 @@ include('header.php');
             </button>
         </form>
 
-
         <form method="post" action="scheduleofclasses.php">
             <label for="desiredLLC">LLC, AOI, WI, HNRS</label>
             <select name="desiredLLC" required>
@@ -36,7 +35,6 @@ include('header.php');
             </select><br><br>
             <button type="submit" name="llcsubmit" class="btn btn-md btn-secondary mb-4">View Avaliable Courses
             </button>
-
         </form>
     </main>
 </div>

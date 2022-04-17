@@ -25,6 +25,5 @@ global $conn;
         <a href="help_request_form.php">
             <button name="help" class="btn">Submit a Help Request</button>
         </a>
-
     </main>
 </div>

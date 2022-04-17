@@ -84,10 +84,10 @@ $sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_
     <div id="student_notes">
 
         <h1>Notes:</h1>
-        <p><?php echo $date_time." - ". $notes ?>
-        </p>
+        <p><?php echo $date_time." - ". $notes ?></p>
         <h2>Upcoming meetings</h2>
-        <p>Date & Time: | Location: | Subject: <br>
+        <p>Date & Time: | Location: | Subject:
+            <br>
             <?php
             while ($row =mysqli_fetch_array($sqlmeeting)){
                 $meeting_time = $row['meetDateTIme'];
@@ -98,6 +98,5 @@ $sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_
 
             ?>
         </p>
-
     </div>
 </div>
