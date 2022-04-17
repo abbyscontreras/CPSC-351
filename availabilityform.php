@@ -21,7 +21,7 @@ include('header.php');
             <button type="submit" name="coursesubmit" class="btn btn-md btn-secondary mb-4">View Available Courses
             </button>
         </form>
-
+        <br><br><br>
         <form method="post" action="scheduleofclasses.php">
             <label for="desiredLLC">LLC, AOI, WI, HNRS</label>
             <select name="desiredLLC" required>
