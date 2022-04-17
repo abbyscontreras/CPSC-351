@@ -50,6 +50,7 @@ if (isset($_POST['coursesubmit']))  {
     echo '<script type="text/javascript"> window.open("scheduleofclasses.php","_self");</script>';
 }
 if (isset($_POST['llcsubmit']))  {
+
     $_SESSION['llc'] = $_POST['desiredLLC'];
     echo '<script type="text/javascript"> window.open("scheduleofclasses.php","_self");</script>';
 }
