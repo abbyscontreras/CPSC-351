@@ -372,13 +372,17 @@ insert into professor
 values (00123456, 'Yes', 'Michael', 'Lapke', 'michael.lapke@cnu.edu', '(757) 594-8921', 'Luter Hall 331',
         'Michael Lapke has served as a business professor at University of Mary Washington for over 15 years before joining the CNU family.',
         'CPSC 350 and CPSC 351',
-        LOAD_FILE('/Users/abigailcontreras/PhpstormProjects/CPSC-351/images/lapke_cnu_profile_picture.jpeg'));
+        '/Users/abigailcontreras/PhpstormProjects/CPSC-351/images/lapke_cnu_profile_picture.jpeg');
 insert into professor
 values (101010, 'Yes', 'DBA', 'Admin', 'dbaadmin@cnu.edu', '(111) 111-1111', 'Admin', 'Admin', 'Admin', '');
 insert into professor
 values (987654, 'Yes', 'Albus', 'Dumbledore', 'albus.dumbledore@cnu.edu', '(234) 456-6789', 'Luter Hall 101',
         'Hogwarts Headmaster.', 'Wizardry 101',
         LOAD_FILE('/Users/abigailcontreras/PhpstormProjects/CPSC-351/images/lapke_cnu_profile_picture.jpeg'));
+
+-- update table professor set professor_img = 'BULK( ' where facultyID='123456';
+-- INSERT INTO professor (professor_img)
+-- SELECT * FROM OPENROWSET(BULK N 'C:\Users\letha\PhpstormProjects\CPSC-351\images\lapke_cnu_profile_picture.jpeg', SINGLE_BLOB) image;
 
 -- insert into registrar table --
 insert into registrar
