@@ -51,7 +51,7 @@ global $conn
                 <li><a href="account.php">Account</a>
                     <ul>
                         <li><a href="profileinfo.php">Profile</a></li>
-                        <li><a href="viewemail.php">Inbox</a></li>
+                        <li><a href="https://gmail.com/">Inbox</a></li>
                         <li><a href="help.php">Help</a></li>
 
                     </ul>
