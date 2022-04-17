@@ -44,9 +44,8 @@ global $conn
 
                 <li><a href="registration.php">Registration</a>
                     <ul>
-                        <li><a href="classavailability.php">Class Availability</a></li>
+                        <li><a href="availabilityform.php">Class Availability</a></li>
                     </ul>
-
                 </li>
                 <li><a href="account.php">Account</a>
                     <ul>

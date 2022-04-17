@@ -518,3 +518,5 @@ select * from advisingNotes where advisingMeeting_Student_student_ID='';
 select distinct areaofLLC from coursesAvailable;
 
 select distinct LEFT(course,4) as course from coursesAvailable;
+
+Select * from coursesAvailable where areaofLLC = 'AINW' order by course asc;

@@ -8,7 +8,7 @@ include('header.php');
     <main>
         <table id="main-table">
             <tr>
-                <td><a href="classavailability.php">Class Availability</a>&nbsp;</td>
+                <td><a href="availabilityform.php">Class Availability</a>&nbsp;</td>
             </tr>
         </table>
     </main>

@@ -5,9 +5,10 @@ include('header.php');
 
 ?>
 <div id="wrapper">
-    <main>
+    <main><br>
         <h2>Schedule of Classes for Fall Semester 2022</h2>
-        <form method="post" action="scheduleofclasses.php">
+        <form method="post" action="">
+            <p>Select a discipline you would like to view the Schedule of Classes for:</p>
             <label for="course">Desired Discipline</label>
             <select name="course" required>
                 <?php
@@ -21,9 +22,11 @@ include('header.php');
             <button type="submit" name="coursesubmit" class="btn btn-md btn-secondary mb-4">View Available Courses
             </button>
         </form>
+        <br><p>OR</p><br>
 
 
-        <form method="post" action="scheduleofclasses.php">
+        <form method="post" action="">
+            <p>Select a LLC you would like to view the Schedule of Classes for:</p>
             <label for="desiredLLC">LLC, AOI, WI, HNRS</label>
             <select name="desiredLLC" required>
                 <?php
@@ -43,9 +46,11 @@ include('header.php');
 
 <?php
 if (isset($_POST['coursesubmit']))  {
-    $course = $_POST['course'];
-    $_SESSION['course'] = $course;
-
+    $_SESSION['course'] = $_POST['course'];
+    echo '<script type="text/javascript"> window.open("scheduleofclasses.php","_self");</script>';
 }
-
+if (isset($_POST['llcsubmit']))  {
+    $_SESSION['llc'] = $_POST['desiredLLC'];
+    echo '<script type="text/javascript"> window.open("scheduleofclasses.php","_self");</script>';
+}
 ?>
