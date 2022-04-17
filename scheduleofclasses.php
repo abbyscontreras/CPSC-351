@@ -19,6 +19,7 @@ include('header.php');
                     <th>Location</th>
                     <th>Instructor</th>
                 </tr>
+
                 <tr>
                     <td>h</td>
                     <td>b</td>
