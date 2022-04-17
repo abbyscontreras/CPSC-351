@@ -35,7 +35,7 @@ include('header.php');
                                 $subject = $row['meetSubject'];
                                 $location = $row['meetLocation'];
                                 $dateTime = $row['meetDateTIme'];
-                                echo "<dt>" . $firstname . " " .$lastname. " - " . $subject . ": " . $location . "</dt>";
+                                echo "<dt>" . $firstname . " " .$lastname. " - " . $subject . ": " . $location . "<br></dt>";
                                 echo "<dd>" . $dateTime . "</dd>";
                             }
                         }
