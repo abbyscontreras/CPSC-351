@@ -515,3 +515,5 @@ ALTER TABLE advisingNotes
 
 
 select * from advisingNotes where advisingMeeting_Student_student_ID=''
+use cnuarchway;
+select distinct areaofLLC from coursesAvailable;
