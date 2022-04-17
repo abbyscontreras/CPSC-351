@@ -21,7 +21,7 @@ $user = $_SESSION['user'];
                     ?>
                 </select><br><br>
                 <label for="notes">Notes:</label>
-                <textarea value="notes" name="notes"></textarea><br><br>
+                <textarea name="notes"></textarea><br><br>
                 <button type="submit" name="updatenotes" class="btn btn-md btn-secondary mb-4">Update
                 </button>
             </div>
@@ -33,39 +33,8 @@ $user = $_SESSION['user'];
 </div>
 <?php
 if (isset($_POST['updatenotes'])) {
-    $sql = "insert into advisingNotes";"
-    $sql = "UPDATE professor SET ";
-    if(!empty($advisorStatus)) {
-        $sql .= "advisorStatus= '$advisorStatus',";
-    }
-    if(!empty($email)) {
-        $sql .= "email= '$email',";
-    }
-    if(!empty($phone)) {
-        $sql .= "phonNumber= '$phone',";
-    }
-    if(!empty($office)) {
-        $sql .= "office= '$office',";
-    }
-    if(!empty($bio)) {
-        $sql .= "biography= '$bio',";
-    }
-    if(!empty($courses)) {
-        $sql .= "courses_teaching= '$courses',";
-    }
-    if(!empty($img)) {
-        $sql .= "professor_img= '$img',";
-    }
-
-// strip off any extra commas on the end
-    $sql = rtrim($sql, ',');
-
-    $sql .= "WHERE facultyID = '$user'";
-    if (mysqli_query($conn, $sql)) {
-        echo "<h3>data stored in a database successfully.</h3>";
-    } else {
-        echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($conn);
-    }
+    $datetime = $_POST['dt'];
+    $notes = $_POST['notes'];
+    $sql = mysqli_query($conn, "INSERT INTO advisingNotes VALUES ('$datetime', '$notes', '$student_ID', '$user')");
 }
 ?>
