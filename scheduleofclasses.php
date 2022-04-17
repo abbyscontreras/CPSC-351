@@ -6,7 +6,7 @@ include('header.php');
 <div id="wrapper">
     <main>
         <section>
-            <table>
+            <table id="coursetable">
                 <tr>
                     <th>CRN</th>
                     <th>Course</th>

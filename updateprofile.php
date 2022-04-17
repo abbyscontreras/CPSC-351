@@ -27,7 +27,7 @@ if (isset($_POST['Update'])) {
         $sql .= "email= '$email',";
     }
     if(!empty($phone)) {
-        $sql .= "phonNumber= '$phone',";
+        $sql .= "phoneNumber= '$phone',";
     }
     if(!empty($office)) {
         $sql .= "office= '$office',";
