@@ -6,6 +6,9 @@ include('header.php');
 <div id="wrapper">
     <main>
         <section>
+            <a href="availabilityform.php">
+                <button name="goBack" class="btn">Go Back</button>
+            </a>
             <table id="coursetable">
                 <tr>
                     <th>CRN</th>
