@@ -9,7 +9,7 @@ include('header.php');
         <table id="main-table">
             <tr>
                 <td><a href="profileinfo.php">Profile</a>&nbsp;</td>
-                <td><a href="inbox.php">Inbox</a>&nbsp;</td>
+                <td> <a href="https://gmail.com/">Inbox</a></td>
                 <td><a href="help.php">Help</a>&nbsp;</td>
             </tr>
         </table>
