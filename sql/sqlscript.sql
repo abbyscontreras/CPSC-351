@@ -277,28 +277,27 @@ DROP TABLE IF EXISTS `cpsc351`.`coursesAvailable`;
 CREATE TABLE IF NOT EXISTS `cpsc351`.`coursesAvailable`
 (
     `CRN`                               INT(4)       NOT NULL,
-    `courseNumber`                      INT(4)       NULL,
-    `courseSubject`                     VARCHAR(45)  NULL,
+    `course`                      VARCHAR(255)       NULL,
+    `section`                       VARCHAR(45)  NULL,
     `courseTitle`                       VARCHAR(45)  NULL,
-    `professor`                         VARCHAR(45) NULL,
-    `dateAndTime`                       VARCHAR(45)  NULL,
-    `location`                          VARCHAR(45) NULL,
-    `prerequisites`                     VARCHAR(45)  NULL,
-    `corequisites`                      VARCHAR(45)  NULL,
-    `courseSchedule_CRN`                INT(4)       NULL,
-    `courseSchedule_Student_student_ID` INT(8)       NULL,
-    `year` INT(8)       NOT NULL,
-    `term` INT(255)       NOT NULL,
-    PRIMARY KEY (`CRN`, `year`, `term`),
-    INDEX `fk_courseDetails_courseSchedule1_idx` (`courseSchedule_CRN` ASC, `courseSchedule_Student_student_ID` ASC) VISIBLE,
-    UNIQUE INDEX `CRN_UNIQUE` (`CRN` ASC) VISIBLE,
-    UNIQUE INDEX `courseSchedule_CRN_UNIQUE` (`courseSchedule_CRN` ASC) VISIBLE,
-    UNIQUE INDEX `courseSchedule_Student_student_ID_UNIQUE` (`courseSchedule_Student_student_ID` ASC) VISIBLE,
-    CONSTRAINT `fk_courseDetails_courseSchedule1`
-        FOREIGN KEY (`year`, `term`,`courseSchedule_Student_student_ID`)
-            REFERENCES `cpsc351`.`studentSchedule` (`year`, `term`,`Student_student_ID`)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION
+    `credits`                       VARCHAR(45)  NULL,
+    `areaofLLC`                       VARCHAR(45)  NULL,
+    `type`                       VARCHAR(45)  NULL,
+    `days`                       VARCHAR(45)  NULL,
+    `time`                       VARCHAR(45)  NULL,
+    `location`                       VARCHAR(45)  NULL,
+    `instructor`                       VARCHAR(45)  NULL,
+    `seatsstillavailable`                       VARCHAR(45)  NULL,
+    `status`                       VARCHAR(45)  NULL,
+    PRIMARY KEY (`CRN`),
+    UNIQUE INDEX `CRN_UNIQUE` (`CRN` ASC) VISIBLE
+#     UNIQUE INDEX `courseSchedule_CRN_UNIQUE` (`courseSchedule_CRN` ASC) VISIBLE,
+#     UNIQUE INDEX `courseSchedule_Student_student_ID_UNIQUE` (`courseSchedule_Student_student_ID` ASC) VISIBLE,
+#     CONSTRAINT `fk_courseDetails_courseSchedule1`
+#         FOREIGN KEY (`year`, `term`,`courseSchedule_Student_student_ID`)
+#             REFERENCES `cpsc351`.`studentSchedule` (`year`, `term`,`Student_student_ID`)
+#             ON DELETE NO ACTION
+#             ON UPDATE NO ACTION
 )
     ENGINE = InnoDB;
 
@@ -514,4 +513,8 @@ ALTER TABLE advisingNotes
     DROP FOREIGN KEY advisingMeeting_professor_facultyID_UNIQUE;
 
 
-select * from advisingNotes where advisingMeeting_Student_student_ID=''
+select * from advisingNotes where advisingMeeting_Student_student_ID='';
+
+select distinct areaofLLC from coursesAvailable;
+
+select distinct LEFT(course,4) as course from coursesAvailable;
