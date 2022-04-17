@@ -22,7 +22,7 @@ include('header.php');
             <button type="submit" name="coursesubmit" class="btn btn-md btn-secondary mb-4">View Available Courses
             </button>
         </form>
-        <br><p>OR</p><br>
+        <p>OR</p>
 
 
         <form method="post" action="">
@@ -41,6 +41,17 @@ include('header.php');
             </button>
 
         </form>
+
+
+        <p>OR</p>
+
+
+        <form method="post" action="">
+            <p>View All Available Courses</p>
+            <button type="submit" name="all" class="btn btn-md btn-secondary mb-4">View All Avaliable Courses
+            </button>
+
+        </form>
     </main>
 </div>
 
@@ -52,6 +63,11 @@ if (isset($_POST['coursesubmit']))  {
 if (isset($_POST['llcsubmit']))  {
 
     $_SESSION['llc'] = $_POST['desiredLLC'];
+    echo '<script type="text/javascript"> window.open("scheduleofclasses.php","_self");</script>';
+}
+
+if (isset($_POST['all']))  {
+    $_SESSION['all'] = 'all';
     echo '<script type="text/javascript"> window.open("scheduleofclasses.php","_self");</script>';
 }
 ?>
