@@ -47,7 +47,7 @@ $sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_
 <div id="wrapper">
     <div id="namepic">
     <h2><?php echo $fname. " " . $lname ?></h2>
-        <img class="profile" src="images/mcdonald_cnu_profile_picture.jpg" alt="Jack McDonald">
+
 
     <table class="profiletable">
         <tr>
@@ -87,26 +87,17 @@ $sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_
         <p><?php echo $date_time." - ". $notes ?>
         </p>
         <h2>Upcoming meetings</h2>
-        <p>Date & Time:      | Location: | Subject: |<br>
+        <p>Date & Time: | Location: | Subject: <br>
             <?php
             while ($row =mysqli_fetch_array($sqlmeeting)){
                 $meeting_time = $row['meetDateTIme'];
                 $meeting_location= $row['meetLocation'];
                 $meeting_subject = $row['meetSubject'];
-                echo '<div>'.$meeting_time." | (".$meeting_location .") | ".$meeting_subject;
+                echo '<div>'.$meeting_time." | (".$meeting_location .") | ".$meeting_subject.'</div>';
             }
-                echo '</div>';
-            ?>
 
-            Spring Advising (virtual)
-            October 15, 2021
-            12:30pm-1:00pm
+            ?>
         </p>
-        <h3>specific notes:</h3>
-        <p>
-            Meeting Date: October 15, 2021
-            Topic: Spring Advising
-            Notes: Missing Capstone, other wise ready to go.
-            Overall is on track for graduation</p>
+
     </div>
 </div>

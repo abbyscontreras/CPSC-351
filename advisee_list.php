@@ -23,7 +23,7 @@ include('header.php');
                     $lname = $row['last_name'];
                     $student_ID = $row['student_ID'];
                     $_SESSION['student_ID'] = $student_ID;
-                    echo '<div class="studentselect"><a href="jack.php?student_select='.$student_ID.'"> <button type="submit" form="advissee" value="'.$student_ID.'">'.$fname . " " . $lname.'</button> </a></div>';
+                    echo '<div class="studentselect"><a href="student.php?student_select='.$student_ID.'"> <button type="submit" form="advissee" value="'.$student_ID.'">'.$fname . " " . $lname.'</button> </a></div>';
 
                 }
             }
