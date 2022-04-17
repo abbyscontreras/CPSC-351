@@ -4,7 +4,7 @@ global $conn;
 include('header.php');
 ?>
 <div id="wrapper">
-    <main>
+    <main id="scrolling">
         <section>
             <a href="availabilityform.php">
                 <button name="goBack" class="btn">Go Back</button>

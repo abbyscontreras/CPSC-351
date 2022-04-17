@@ -179,3 +179,8 @@ section {
 
 }
 #coursetable td {font-size: x-small}
+
+#scrolling {
+    overflow-y:scroll;
+    max-height: 700px;
+}
