@@ -38,7 +38,7 @@ global $conn
                     <ul>
                         <li><a href="advisee_list.php">Advisee List</a></li>
                         <li><a href="viewmeetings.php">Meetings</a></li>
-                        <li><a href="importantnotes.php">Important Notes</a></li>
+                        <li><a href="studentmeetingnotes.php">Important Notes</a></li>
                     </ul>
                 </li>
 

@@ -512,3 +512,6 @@ from advisingNotes;
 
 ALTER TABLE advisingNotes
     DROP FOREIGN KEY advisingMeeting_professor_facultyID_UNIQUE;
+
+
+select * from advisingNotes where advisingMeeting_Student_student_ID=''
