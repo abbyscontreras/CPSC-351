@@ -4,7 +4,7 @@ global $conn;
 include('header.php');
 ?>
 <div id="wrapper">
-    <main>
+    <main id="scrolling">
         <section>
             <table id="coursetable">
                 <tr>
