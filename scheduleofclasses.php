@@ -78,7 +78,6 @@ include('header.php');
                     }
                     unset ($_SESSION['llc']);
                 }
-
                 ?>
             </table>
             <a href="availabilityform.php">
