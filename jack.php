@@ -21,7 +21,7 @@ $meeting_subject='';
 $id = $_GET['student_select'];
 $sqlnotes =mysqli_query($conn, "select * from advisingNotes where advisingMeeting_professor_facultyID='$user' and advisingMeeting_Student_student_ID='$id'");
 $sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user' and student_ID='$id'");
-$sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_facultyID='$user' and Student_student_ID='$id'");
+$sqlmeeting =mysqli_query($conn, "select * from advisingMeeting where professor_facultyID='$user' and Student_student_ID='$id' and meetDateTIme > CURRENT_TIMESTAMP()");
 
     while ($row = mysqli_fetch_array($sql)) {
         $fname = $row['first_name'];
