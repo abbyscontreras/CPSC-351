@@ -51,7 +51,6 @@ include('header.php');
                 }
 
                 if (isset($_SESSION['llc'])) {
-                    echo 'hello';
                     $llc = $_SESSION['llc'];
                     $sql2 = mysqli_query($conn, "Select * from coursesAvailable where areaofLLC = '$llc' order by course asc");
                     while ($row = mysqli_fetch_array($sql2)) {
@@ -78,9 +77,8 @@ include('header.php');
                         echo "</td></tr>";
                     }
                     unset ($_SESSION['llc']);
-                }else {
-                    echo 'non';
                 }
+
                 ?>
             </table>
             <a href="availabilityform.php">
