@@ -180,6 +180,11 @@ section {
 }
 #coursetable td {font-size: x-small}
 
+#coursetable tr:nth-child(even) {
+    background-color: green;
+}
+
+
 #scrolling {
     overflow-y:scroll;
     max-height: 700px;

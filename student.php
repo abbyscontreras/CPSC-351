@@ -85,4 +85,11 @@ while ($row = mysqli_fetch_array($sqlnotes)) {
             ?>
         </p>
     </div>
+    <div>
+        <h2>Student Schedule</h2>
+            <?php
+
+            ?>
+        </p>
+    </div>
 </div>
