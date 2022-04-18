@@ -9,8 +9,8 @@ include('header.php');
             <a href="schedulemeeting.php">
                 <button name="scheduleMeeting" class="btn">Schedule Meeting</button>
             </a>
-            <a href="updatemeeting.php">
-                <button name="updateMeeting" class="btn">Update/Cancel Meeting</button>
+            <a href="deletemeeting.php">
+                <button name="deletemeeting" class="btn">Cancel Meeting</button>
             </a>
             <a href="https://meet.google.com/" target="_blank">
                 <button name="joinMeeting" class="btn">Virtual Meeting</button>

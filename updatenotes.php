@@ -38,6 +38,6 @@ if (isset($_POST['updatenotes'])) {
     $sql = mysqli_query($conn, "INSERT INTO advisingNotes VALUES ('$datetime', '$notes', '$student_ID', '$user')");
     $sql2 = mysqli_query($conn, "UPDATE advisingNotes set meetNotes = '$notes' where dateAndTime='$datetime' and advisingMeeting_Student_student_ID='$student_ID' and advisingMeeting_professor_facultyID='$user'");
     echo '<script>alert("Meeting notes are saved.")</script>';
-
+    echo '<script type="text/javascript"> window.open("importantnotes.php","_self");</script>';
 }
 ?>

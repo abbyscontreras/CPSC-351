@@ -6,10 +6,10 @@ $user = $_SESSION['user'];
 ?>
     <div id="wrapper">
         <main>
-            <h2>Schedule Meeting</h2>
+            <h2>Cancel Meeting</h2>
             <form method="post">
                 <div>
-                    <label for="student" class="mb-2">Select a student you would like to make a meeting for:</label><br><br>
+                    <label for="student" class="mb-2">Select a student you would like to delete a meeting for:</label><br><br>
                     <select name="student" required>
                         <?php
                         $sql = mysqli_query($conn, "SELECT * FROM Student WHERE fk_facultyID='$user'");
@@ -20,8 +20,8 @@ $user = $_SESSION['user'];
                             echo '<option value="'.$studentID.'">'.$firstname.' '.$lastname.'</option>';
                         }
                         ?>
-                    </select><br><br>
-                    <button type="submit" name="selectstudent" class="btn btn-md btn-secondary mb-4">Go to Schedule Meeting</button>
+                        </select><br><br>
+                    <button type="submit" name="deletestudentmeet" class="btn btn-md btn-secondary mb-4">Go to Cancel Meeting</button>
                 </div>
             </form>
             <a href="viewmeetings.php">
@@ -30,15 +30,8 @@ $user = $_SESSION['user'];
         </main>
     </div>
 <?php
-if (isset($_POST['selectstudent'])) {
+if (isset($_POST['deletestudentmeet'])) {
     $_SESSION['student'] = $_POST['student'];
-    echo '<script type="text/javascript"> window.open("schedulemeeting2.php","_self");</script>';
-//    if (mysqli_query($conn, $sql)) {
-//        echo "<h3>data stored in a database successfully.</h3>";
-//    } else {
-//        echo "ERROR: Hush! Sorry $sql. "
-//            . mysqli_error($conn);
-//    }
-//    echo '<script>alert("Meeting notes are saved.")</script>';
+    echo '<script type="text/javascript"> window.open("deletemeeting2.php","_self");</script>';
 }
 ?>
