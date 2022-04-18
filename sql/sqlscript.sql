@@ -244,22 +244,22 @@ DROP TABLE IF EXISTS `cpsc351`.`studentSchedule`;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`studentSchedule`
 (
-    `CRN`                INT(4)       NULL,
+    `CRN`                INT(4)       NOT NULL,
     `courseNumber`       INT(4)       NULL,
     `courseSubject`      VARCHAR(45)  NULL,
     `courseTitle`        VARCHAR(45)  NULL,
     `professor`          VARCHAR(45) NULL,
-    `dateAndTime`        VARCHAR(45) NULL,
+    `day`        VARCHAR(45) NULL,
+    `time`        VARCHAR(45) NULL,
     `location`           VARCHAR(45) NULL,
     `credits`            INT(2)       NULL,
     `grade`              VARCHAR(2)  NULL,
     `year` INT(8)        NOT NULL,
-    `term` INT(255)        NOT NULL,
+    `term` VARCHAR(255)        NOT NULL,
     `Student_student_ID` INT(8)       NOT NULL,
 
-    PRIMARY KEY (`year`, `term`,`Student_student_ID`),
+     PRIMARY KEY (`year`, `term`, `CRN`,`Student_student_ID`),
     INDEX `fk_courseSchedule_Student1_idx` (`Student_student_ID` ASC) VISIBLE,
-    UNIQUE INDEX `CRN_UNIQUE` (`CRN` ASC) VISIBLE,
     CONSTRAINT `fk_courseSchedule_Student1`
         FOREIGN KEY (`Student_student_ID`)
             REFERENCES `cpsc351`.`Student` (`student_ID`)

@@ -5,7 +5,6 @@ global $conn
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -22,15 +21,12 @@ global $conn
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CNU Archway</title>
 </head>
-
 <body>
 <header>
     <div class="head">
         <a href="index.php"><img src="../images/logocnu.png"/></a>
         <h1>CNU Archway</h1>
     </div>
-
-
     <div class="centered">
         <nav id="header-table">
             <ul>
@@ -41,7 +37,6 @@ global $conn
                         <li><a href="studentmeetingnotes.php">Important Notes</a></li>
                     </ul>
                 </li>
-
                 <li><a href="registration.php">Registration</a>
                     <ul>
                         <li><a href="availabilityform.php">Class Availability</a></li>
@@ -62,4 +57,3 @@ global $conn
         </nav>
     </div>
 </header>
-
