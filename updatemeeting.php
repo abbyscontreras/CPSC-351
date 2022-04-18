@@ -43,7 +43,6 @@ if (isset($_POST['Update'])) {
         <dl>
             <?php
             if (isset($_SESSION['user'])) {
-                $user = $_SESSION['user'];
                 $sql = mysqli_query($conn, "SELECT advisingMeeting.*, Student.first_name, Student.last_name FROM advisingMeeting INNER JOIN Student ON advisingMeeting.Student_student_ID=Student.student_ID WHERE advisingMeeting.professor_facultyID ='$user' and advisingMeeting.meetDateTIme > CURRENT_TIMESTAMP() order by advisingMeeting.meetDateTime DESC;");
                 while ($row = mysqli_fetch_array($sql)) {
                     $firstname = $row['first_name'];
@@ -55,23 +54,34 @@ if (isset($_POST['Update'])) {
                     echo "<dt>" . $firstname . " " .$lastname. " - " . $subject . ": " . $location . "</dt>";
                     echo "<dd>" . $dateTime . "</dd>";
                     echo "<form method='post'>
-                            <button type='sumbit' value='update'>Update</button> <button type='submit' name='delete'>Cancel</button></form>";
+                            <button type='sumbit' name='update' value='.$dateTime.'>Update</button> Cancel:<input type='checkbox' name='check' value='.$dateTime.'></form>";
                     echo "<br>";
-                }
-                if (isset($_POST['delete'])){
-                    mysqli_query($conn, query: "DELETE FROM advisingNotes where advisingMeeting_professor_facultyID = '$user'");
-                    mysqli_query($conn, query: "DELETE FROM advisingMeeting where professor_facultyID = '$user'");
+
 
                 }
+
+            }
+
+            if(isset($_POST['delete'])){
+                $checkbox = $_POST['check'];
+                for($i=0;$i<count($checkbox);$i++){
+                    $del_id = $checkbox[$i];
+                    mysqli_query($conn,"DELETE FROM advisingMeeting WHERE userid='".$del_id."'");
+                    $message = "Data deleted successfully !";
+                }
+
+//
+//                    mysqli_query($conn, query: "DELETE FROM advisingNotes where dateAndTime = ''");
+//                    mysqli_query($conn, query: "DELETE FROM advisingMeeting where meetDateTIme = '$dateTime'");
+//
+//                }
             }
             ?>
         </dl>
-<!--        Need to get this to match with above-->
-<!--        <form method="post" action="">-->
-<!--            <label for="toEmail">To:</label>-->
-<!--            <input type="email" name="toEmail" id="toEmail" required>-->
-<!--            <br><br>-->
-<!---->
+        <form method="post" action="">
+            <button type="submit" name="delete">Delete Selected meetings</button>
+            <div><?php if(isset($message)) { echo $message; } ?></div>
+
 <!--            <label for="subjectEmail">Subject: Advising Meeting CHANGED</label>-->
 <!--            <input type="text" name="subjectEmail" id="subjectEmail" required>-->
 <!--            <br><br>-->
