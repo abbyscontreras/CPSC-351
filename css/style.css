@@ -175,7 +175,9 @@ section {
 }
 .profile {float:left;grid-column:1/2;
 }
-#studentselect{padding:10px;font-size:20px; float:right;
+#studentselect{padding:20px; float:left;
+}
+#student_select{padding:10px;font-size:20px; margin:auto; box-shadow: 1px 1px 1px #CCCCCC;
 
 }
 #coursetable td {font-size: x-small}

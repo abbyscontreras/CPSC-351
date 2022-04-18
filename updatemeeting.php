@@ -62,20 +62,20 @@ if (isset($_POST['Update'])) {
 
             }
 
-            if(isset($_POST['delete'])){
-                $checkbox = $_POST['check'];
-                for($i=0;$i<count($checkbox);$i++){
-                    $del_id = $checkbox[$i];
-                    mysqli_query($conn,"DELETE FROM advisingMeeting WHERE userid='".$del_id."'");
-                    $message = "Data deleted successfully !";
-                }
+//            if(isset($_POST['delete'])){
+//                $checkbox = $_POST['check'];
+//                for($i=0;$i<count($checkbox);$i++){
+//                    $del_id = $checkbox[$i];
+//                    mysqli_query($conn,"DELETE FROM advisingMeeting WHERE userid='".$del_id."'");
+//                    $message = "Data deleted successfully !";
+//                }
 
 //
 //                    mysqli_query($conn, query: "DELETE FROM advisingNotes where dateAndTime = ''");
 //                    mysqli_query($conn, query: "DELETE FROM advisingMeeting where meetDateTIme = '$dateTime'");
 //
 //                }
-            }
+//            }
             ?>
         </dl>
         <form method="post" action="">
