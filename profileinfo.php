@@ -15,13 +15,13 @@ global $conn;
                     while ($row = mysqli_fetch_array($sql)) {
                         $fname = $row['first_name'];
                         $lname = $row['last_name'];
+                        $pimg = $row['professor_img'];
                         echo $fname . " " . $lname;
-                        echo '<img src="data:image;base64,' . base64_encode($row['professor_img']) . 'alt="Image">';
+                        echo "<img src='$pimg' . alt='Professor Image' >";
+//                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row['professor_img']) . 'alt="Professor Image">';
                     }
                 }
                 ?></h1>
-            <!--            <img src="" alt="">-->
-            <!--            <img src="images/lapke_cnu_profile_picture.jpeg" alt="Michael Lapke">-->
         </section>
         <section>
             <h3>Biography</h3>
