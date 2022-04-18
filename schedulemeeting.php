@@ -17,11 +17,13 @@ $user = $_SESSION['user'];
                             $firstname = $row['first_name'];
                             $lastname = $row['last_name'];
                             $studentID = $row['student_ID'];
-                            echo '<option value="'.$studentID.'">'.$firstname.' '.$lastname.'</option>';
+                            echo '<option value="' . $studentID . '">' . $firstname . ' ' . $lastname . '</option>';
                         }
                         ?>
                     </select><br><br>
-                    <button type="submit" name="selectstudent" class="btn btn-md btn-secondary mb-4">Go to Schedule Meeting</button>
+                    <button type="submit" name="selectstudent" class="btn btn-md btn-secondary mb-4">Go to Schedule
+                        Meeting
+                    </button>
                 </div>
             </form>
             <a href="viewmeetings.php">
@@ -33,12 +35,5 @@ $user = $_SESSION['user'];
 if (isset($_POST['selectstudent'])) {
     $_SESSION['student'] = $_POST['student'];
     echo '<script type="text/javascript"> window.open("schedulemeeting2.php","_self");</script>';
-//    if (mysqli_query($conn, $sql)) {
-//        echo "<h3>data stored in a database successfully.</h3>";
-//    } else {
-//        echo "ERROR: Hush! Sorry $sql. "
-//            . mysqli_error($conn);
-//    }
-//    echo '<script>alert("Meeting notes are saved.")</script>';
 }
 ?>

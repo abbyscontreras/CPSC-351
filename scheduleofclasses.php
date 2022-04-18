@@ -22,7 +22,6 @@ include('header.php');
                     <th>Location</th>
                     <th>Instructor</th>
                 </tr>
-
                 <?php
                 if (isset($_SESSION['course'])) {
                     $course = $_SESSION['course'];
@@ -52,7 +51,6 @@ include('header.php');
                     }
                     unset ($_SESSION['course']);
                 }
-
                 if (isset($_SESSION['llc'])) {
                     $llc = $_SESSION['llc'];
                     $sql2 = mysqli_query($conn, "Select * from coursesAvailable where areaofLLC = '$llc' order by course asc");
@@ -107,8 +105,6 @@ include('header.php');
                         echo "</td></tr>";
                     }
                 }
-
-
                 ?>
             </table>
             <a href="availabilityform.php">

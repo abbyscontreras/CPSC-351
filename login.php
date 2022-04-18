@@ -1,7 +1,6 @@
 <?php
 global $msg;
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,7 +22,6 @@ global $msg;
     </script>
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="/css/style.css">
-
     <title>Login</title>
 </head>
 <body>
@@ -32,7 +30,6 @@ global $msg;
         <h1>CNU Archway</h1>
     </div>
 </header>
-
 <section class="vh-100">
     <div class="container py-5 h-100" style="width:50%;">
         <div class="card" style="align-content: center; align-items: center;padding:10px;">

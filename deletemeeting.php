@@ -9,7 +9,8 @@ $user = $_SESSION['user'];
             <h2>Cancel Meeting</h2>
             <form method="post">
                 <div>
-                    <label for="student" class="mb-2">Select a student you would like to delete a meeting for:</label><br><br>
+                    <label for="student" class="mb-2">Select a student you would like to delete a meeting
+                        for:</label><br><br>
                     <select name="student" required>
                         <?php
                         $sql = mysqli_query($conn, "SELECT * FROM Student WHERE fk_facultyID='$user'");
@@ -17,11 +18,13 @@ $user = $_SESSION['user'];
                             $firstname = $row['first_name'];
                             $lastname = $row['last_name'];
                             $studentID = $row['student_ID'];
-                            echo '<option value="'.$studentID.'">'.$firstname.' '.$lastname.'</option>';
+                            echo '<option value="' . $studentID . '">' . $firstname . ' ' . $lastname . '</option>';
                         }
                         ?>
-                        </select><br><br>
-                    <button type="submit" name="deletestudentmeet" class="btn btn-md btn-secondary mb-4">Go to Cancel Meeting</button>
+                    </select><br><br>
+                    <button type="submit" name="deletestudentmeet" class="btn btn-md btn-secondary mb-4">Go to Cancel
+                        Meeting
+                    </button>
                 </div>
             </form>
             <a href="viewmeetings.php">

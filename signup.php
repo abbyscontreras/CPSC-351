@@ -3,7 +3,6 @@ include('db_connection.php');
 global $conn;
 $msg = "";
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,7 +24,6 @@ $msg = "";
     </script>
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/style.css">
-
     <title>Signup</title>
 </head>
 <body>
@@ -34,7 +32,6 @@ $msg = "";
         <h1>CNU Archway</h1>
     </div>
 </header>
-
 <section class="vh-100">
     <div class="container py-5 h-100" style="width:50%;">
         <div class="card" style="align-content: center; align-items: center;padding:10px;">
@@ -83,7 +80,6 @@ $msg = "";
                             name="submit">Sign up
                     </button>
                     <p class="mb-5 pb-lg-2">Already have an account? <a href="login.php">Sign in here</a>
-
                         <?php echo $msg ?>
                 </form>
             </div>

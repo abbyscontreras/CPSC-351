@@ -1,4 +1,3 @@
-
 <?php
 include('db_connection.php');
 global $conn;
@@ -8,22 +7,20 @@ $student = $_SESSION['student'];
 ?>
 <div id="wrapper">
     <main>
-        <h2>Schedule Meeting for <?php echo $student?></h2>
+        <h2>Schedule Meeting for <?php echo $student ?></h2>
         <form method="post" action="">
             <div>
-
-            <label for="datetime">Date and Time:</label>
-            <input type="datetime-local" name="datetime" id="datetime" required>
-            <br><br>
-
-            <label for="subject">Subject:</label>
-            <input type="text" name="subject" id="subject" required>
-            <br><br>
-
-            <label for="Location">Location:</label>
-            <input type="text" name="location" id="location" required>
-            <br><br>
-                <button type="submit" name="insertmeeting" class="btn btn-md btn-secondary mb-4">Create New Meeting</button>
+                <label for="datetime">Date and Time:</label>
+                <input type="datetime-local" name="datetime" id="datetime" required>
+                <br><br>
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject" required>
+                <br><br>
+                <label for="Location">Location:</label>
+                <input type="text" name="location" id="location" required>
+                <br><br>
+                <button type="submit" name="insertmeeting" class="btn btn-md btn-secondary mb-4">Create New Meeting
+                </button>
             </div>
         </form>
         <a href="schedulemeeting.php">

@@ -1,4 +1,3 @@
-
 <?php
 include('db_connection.php');
 global $conn;
@@ -19,7 +18,7 @@ $user = $_SESSION['user'];
                         $subject = $row['meetSubject'];
                         $location = $row['meetLocation'];
                         $dateTime = $row['meetDateTIme'];
-                        echo '<option value="'.$dateTime.'">'.$dateTime.' '.$subject.', '.$location.'</option>';
+                        echo '<option value="' . $dateTime . '">' . $dateTime . ' ' . $subject . ', ' . $location . '</option>';
                     }
                     ?>
                 </select><br><br>
@@ -34,10 +33,10 @@ $user = $_SESSION['user'];
 <?php
 if (isset($_POST['deletemeeting'])) {
     $dt = $_POST['dt'];
-    $sql1 = mysqli_query($conn,"SET FOREIGN_KEY_CHECKS=0;");
+    $sql1 = mysqli_query($conn, "SET FOREIGN_KEY_CHECKS=0;");
     $sql2 = mysqli_query($conn, "delete from advisingNotes where dateAndTime='$dt' and advisingMeeting_Student_student_ID='$student' and advisingMeeting_professor_facultyID='$user'");
     $sql3 = mysqli_query($conn, "delete from advisingMeeting where Student_student_ID='$student' and meetDateTIme='$dt' and professor_facultyID='$user'");
-    $sql4 = mysqli_query($conn,"SET FOREIGN_KEY_CHECKS=1;");
+    $sql4 = mysqli_query($conn, "SET FOREIGN_KEY_CHECKS=1;");
     echo '<script>alert("Meeting is Cancelled")</script>';
     echo '<script type="text/javascript"> window.open("viewmeetings.php","_self");</script>';
 }
