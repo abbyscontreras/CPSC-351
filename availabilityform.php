@@ -40,7 +40,7 @@ include('header.php');
             <p>OR</p>
             <form method="post" action="">
                 <p>View All Available Courses</p>
-                <button type="submit" name="all" class="btn btn-md btn-secondary mb-4">View All Avaliable Courses
+                <button type="submit" name="all" class="btn btn-md btn-secondary mb-4">View All Available Courses
                 </button>
             </form>
         </main>
