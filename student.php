@@ -33,10 +33,7 @@ while ($row = mysqli_fetch_array($sql)) {
     $major = $row['major'];
     $minor = $row['minor'];
 }
-while ($row = mysqli_fetch_array($sqlnotes)) {
-    $notes = $row['meetNotes'];
-    $date_time = $row['dateAndTime'];
-}
+
 while ($row = mysqli_fetch_array($sqlpin)) {
     $studentPin = $row['pin_number'];
 
@@ -84,7 +81,13 @@ while ($row = mysqli_fetch_array($sqlpin)) {
     </div>
     <div id="student_notes">
         <h1>Notes:</h1>
-        <p><?php echo $date_time . " - " . $notes ?></p>
+        <p><?php while ($row = mysqli_fetch_array($sqlnotes)) {
+                    $notes = $row['meetNotes'];
+                    $date_time = $row['dateAndTime'];
+                    echo $date_time . " - " . $notes . "<br>";
+            }
+            ?>
+        </p>
         <h2>Upcoming meetings</h2>
         <p>Date & Time: | Location: | Subject:
             <br>
