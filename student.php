@@ -17,9 +17,12 @@ $meeting_time = '';
 $meeting_location = '';
 $meeting_subject = '';
 $id = $_GET['student_select'];
+$studentPin = '';
 $sqlnotes = mysqli_query($conn, "select * from advisingNotes where advisingMeeting_professor_facultyID='$user' and advisingMeeting_Student_student_ID='$id'");
 $sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user' and student_ID='$id'");
 $sqlmeeting = mysqli_query($conn, "select * from advisingMeeting where professor_facultyID='$user' and Student_student_ID='$id' and meetDateTIme > CURRENT_TIMESTAMP()");
+$sqlpin = mysqli_query($conn, "select * from studentPin where professor_facultyID='$user' and Student_student_ID='$id'");
+
 while ($row = mysqli_fetch_array($sql)) {
     $fname = $row['first_name'];
     $lname = $row['last_name'];
@@ -33,6 +36,10 @@ while ($row = mysqli_fetch_array($sql)) {
 while ($row = mysqli_fetch_array($sqlnotes)) {
     $notes = $row['meetNotes'];
     $date_time = $row['dateAndTime'];
+}
+while ($row = mysqli_fetch_array($sqlpin)) {
+    $studentPin = $row['pin_number'];
+
 }
 ?>
 <div id="wrapper">
@@ -68,7 +75,12 @@ while ($row = mysqli_fetch_array($sqlnotes)) {
                 <td>Minor</td>
                 <td><?php echo $minor ?></td>
             </tr>
+            <tr>
+                <td>STUDENT PIN:</td>
+                <td><?php echo $studentPin?></td>
+            </tr>
         </table>
+
     </div>
     <div id="student_notes">
         <h1>Notes:</h1>
