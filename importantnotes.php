@@ -18,7 +18,7 @@ include('header.php');
             $sql = mysqli_query($conn, "Select * from advisingNotes where advisingMeeting_professor_facultyID='$user' and advisingMeeting_Student_student_ID='$student_ID'");
             while ($row = mysqli_fetch_array($sql)) {
                 echo "<tr><td>";
-                echo $student_ID;
+                echo $row['coursesub'];
                 echo "</td><td>";
                 echo $row['dateAndTime'];
                 echo "</td><td>";

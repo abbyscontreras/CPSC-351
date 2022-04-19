@@ -87,9 +87,91 @@ while ($row = mysqli_fetch_array($sqlnotes)) {
     </div>
     <div>
         <h2>Student Schedule</h2>
-            <?php
+        <div class="grid-container">
+            <div class="grid-item">
+                <ol><p style="font-weight: bold;text-decoration: underline;">Monday</p>
+                <?php
+                $sql = mysqli_query($conn, "Select * from studentSchedule where Student_student_ID='$id' and day like 'M%' order by time ASC");
+                while ($row = mysqli_fetch_array($sql)) {
+                    echo '<li>'.$row['courseSubject'].' '.$row['courseNumber'].'</li>';
+                }
+                ?>
+                </ol>
+            </div>
+            <div class="grid-item">
+                <ol><p style="font-weight: bold;text-decoration: underline;">Tuesday</p>
+                    <?php
+                    $sql = mysqli_query($conn, "Select * from studentSchedule where Student_student_ID='$id' and day like 'T%' order by time ASC");
+                    while ($row = mysqli_fetch_array($sql)) {
+                        echo '<li>'.$row['courseSubject'].' '.$row['courseNumber'].'</li>';
+                    }
+                    ?>
+            </div>
+            <div class="grid-item">
+                <ol><p style="font-weight: bold;text-decoration: underline;">Wednesday</p>
 
-            ?>
-        </p>
+                    <?php
+                    $sql = mysqli_query($conn, "Select * from studentSchedule where Student_student_ID='$id' and day like 'M%' order by time ASC");
+                    while ($row = mysqli_fetch_array($sql)) {
+                        echo '<li>'.$row['courseSubject'].' '.$row['courseNumber'].'</li>';
+                    }
+                    ?>
+            </div>
+            <div class="grid-item">
+                <ol><p style="font-weight: bold;text-decoration: underline;">Thursday</p>
+
+                    <?php
+                    $sql = mysqli_query($conn, "Select * from studentSchedule where Student_student_ID='$id' and day like 'T%' order by time ASC");
+                    while ($row = mysqli_fetch_array($sql)) {
+                        echo '<li>'.$row['courseSubject'].' '.$row['courseNumber'].'</li>';
+                    }
+                    ?>
+            </div>
+            <div class="grid-item">
+                <ol><p style="font-weight: bold;text-decoration: underline;">Friday</p>
+                    <?php
+                    $sql = mysqli_query($conn, "Select * from studentSchedule where Student_student_ID='$id' and day like 'M%' order by time ASC");
+                    while ($row = mysqli_fetch_array($sql)) {
+                        echo '<li>'.$row['courseSubject'].' '.$row['courseNumber'].'</li>';
+                    }
+                    ?>
+            </div>
+        </div>
+<!--        <table>-->
+<!--            <tr>-->
+<!--                <th>Monday</th>-->
+<!--                <th>Tuesday</th>-->
+<!--                <th>Wednesday</th>-->
+<!--                <th>Thursday</th>-->
+<!--                <th>Friday</th>-->
+<!--            </tr>-->
+<!--            --><?php
+//            $sql = mysqli_query($conn, "Select * from studentSchedule where Student_student_ID='$id' and day like 'M%' order by time ASC");
+//            $sql2 = mysqli_query($conn, "Select * from studentSchedule where Student_student_ID='$id' and day like 'T%' order by time ASC");
+//            while ($row = mysqli_fetch_array($sql)) {
+//                echo "<tr><td>";
+//                echo $row['courseSubject'].' '.$row['courseNumber'];
+//                echo "</td><td>";
+//                echo "</td><td>";
+//                echo $row['courseSubject'].' '.$row['courseNumber'];
+//                echo "</td><td>";
+//                echo "</td><td>";
+//                echo $row['courseSubject'].' '.$row['courseNumber'];
+//                echo "</td></tr>";
+//                while ($row2 = mysqli_fetch_array($sql2)) {
+//
+//                    echo "<tr><td>";
+//                    echo "</td><td>";
+//                    echo $row2['courseSubject'].' '.$row2['courseNumber'];
+//                    echo "</td><td>";
+//                    echo "</td><td>";
+//                    echo $row2['courseSubject'].' '.$row2['courseNumber'];
+//                    echo "</td><td>";
+//                    echo "</td></tr>";
+//            }
+//            }
+//
+//            ?>
+<!--        </table>-->
     </div>
 </div>

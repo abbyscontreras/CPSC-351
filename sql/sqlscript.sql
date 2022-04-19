@@ -524,3 +524,5 @@ select distinct areaofLLC from coursesAvailable;
 select distinct LEFT(course,4) as course from coursesAvailable;
 
 Select * from coursesAvailable where areaofLLC = 'AINW' order by course asc;
+
+Select * from studentSchedule where Student_student_ID='975829' and day like 'T%' order by time ASC
