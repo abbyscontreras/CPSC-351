@@ -5,10 +5,10 @@ include('header.php');
 ?>
 <div id="wrapper">
     <main id="scrolling">
+        <a href="availabilityform.php">
+            <button name="goBack" class="btn">Go Back</button>
+        </a>
         <section>
-            <a href="availabilityform.php">
-                <button name="goBack" class="btn">Go Back</button>
-            </a>
             <table id="coursetable">
                 <tr>
                     <th>CRN</th>
@@ -25,7 +25,7 @@ include('header.php');
                 <?php
                 if (isset($_SESSION['course'])) {
                     $course = $_SESSION['course'];
-                    $sql = mysqli_query($conn, "Select * from coursesAvailable where course like '{$course}%' order by course asc");
+                    $sql = mysqli_query($conn, "Select * from coursesAvailable where course like '{$course}%' and status='Open' order by course asc");
                     while ($row = mysqli_fetch_array($sql)) {
                         echo "<tr><td>";
                         echo $row['CRN'];
@@ -53,7 +53,7 @@ include('header.php');
                 }
                 if (isset($_SESSION['llc'])) {
                     $llc = $_SESSION['llc'];
-                    $sql2 = mysqli_query($conn, "Select * from coursesAvailable where areaofLLC = '$llc' order by course asc");
+                    $sql2 = mysqli_query($conn, "Select * from coursesAvailable where areaofLLC = '$llc' and status='Open' order by course asc");
                     while ($row = mysqli_fetch_array($sql2)) {
                         echo "<tr><td>";
                         echo $row['CRN'];
@@ -80,7 +80,7 @@ include('header.php');
                     unset ($_SESSION['llc']);
                 }
                 if (isset($_SESSION['all'])) {
-                    $sql = mysqli_query($conn, "Select * from coursesAvailable order by course asc");
+                    $sql = mysqli_query($conn, "Select * from coursesAvailable where status='Open' order by course asc");
                     while ($row = mysqli_fetch_array($sql)) {
                         echo "<tr><td>";
                         echo $row['CRN'];
@@ -108,9 +108,9 @@ include('header.php');
                 }
                 ?>
             </table>
-            <a href="availabilityform.php">
-                <button name="goBack" class="btn">Go Back</button>
-            </a>
         </section>
+        <a href="availabilityform.php">
+            <button name="goBack" class="btn">Go Back</button>
+        </a>
     </main>
 </div>

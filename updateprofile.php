@@ -45,6 +45,9 @@ if (isset($_POST['Update'])) {
 ?>
 <div id="wrapper">
     <main>
+        <a href="profileinfo.php">
+            <button name="goBack" class="btn">Go Back</button>
+        </a>
         <h2>Update Profile</h2>
         <form method="post" action="">
             <p>Are you an advisor?</p>
@@ -73,8 +76,6 @@ if (isset($_POST['Update'])) {
             <br><br>
             <button name="Update" type="submit" class="btn">Update Profile</button>
         </form>
-        <a href="profileinfo.php">
-            <button name="goBack" class="btn">Go Back</button>
-        </a>
+
     </main>
 </div>

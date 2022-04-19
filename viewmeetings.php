@@ -4,7 +4,7 @@ global $conn;
 include('header.php');
 ?>
 <div id="wrapper">
-    <main>
+    <main id="scrolling">
         <div class="btn-group">
             <a href="schedulemeeting.php">
                 <button name="scheduleMeeting" class="btn">Schedule Meeting</button>

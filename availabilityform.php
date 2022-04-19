@@ -11,7 +11,7 @@ include('header.php');
                 <label for="course">Desired Discipline</label>
                 <select name="course" required>
                     <?php
-                    $sql = mysqli_query($conn, "select distinct LEFT(course, 4) as course from coursesAvailable");
+                    $sql = mysqli_query($conn, "select distinct LEFT(course, 4) as course from coursesAvailable order by course");
                     while ($row = mysqli_fetch_array($sql)) {
                         $course = $row['course'];
                         echo '<option value="' . $course . '">' . $course . '</option>';
@@ -27,7 +27,7 @@ include('header.php');
                 <label for="desiredLLC">LLC, AOI, WI, HNRS</label>
                 <select name="desiredLLC" required>
                     <?php
-                    $sql = mysqli_query($conn, "select distinct areaofLLC from coursesAvailable where areaofLLC IS NOT NULL");
+                    $sql = mysqli_query($conn, "select distinct areaofLLC from coursesAvailable where areaofLLC IS NOT NULL order by areaofLLC");
                     while ($row = mysqli_fetch_array($sql)) {
                         $areaofLLC = $row['areaofLLC'];
                         echo '<option value="' . $areaofLLC . '">' . $areaofLLC . '</option>';
@@ -45,7 +45,6 @@ include('header.php');
             </form>
         </main>
     </div>
-
 <?php
 if (isset($_POST['coursesubmit'])) {
     $_SESSION['course'] = $_POST['course'];

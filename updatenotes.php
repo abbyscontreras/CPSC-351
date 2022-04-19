@@ -6,6 +6,9 @@ $user = $_SESSION['user'];
 ?>
     <div id="wrapper">
         <main>
+            <a href="importantnotes.php">
+                <button name="goBack" class="btn">Go Back</button>
+            </a>
             <h2>Update Notes</h2>
             <form method="post">
                 <div>
@@ -26,9 +29,6 @@ $user = $_SESSION['user'];
                     </button>
                 </div>
             </form>
-            <a href="importantnotes.php">
-                <button name="goBack" class="btn">Go Back</button>
-            </a>
         </main>
     </div>
 <?php

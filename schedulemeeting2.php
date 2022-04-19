@@ -5,29 +5,29 @@ include('header.php');
 $user = $_SESSION['user'];
 $student = $_SESSION['student'];
 ?>
-<div id="wrapper">
-    <main>
-        <h2>Schedule Meeting for <?php echo $student ?></h2>
-        <form method="post" action="">
-            <div>
-                <label for="datetime">Date and Time:</label>
-                <input type="datetime-local" name="datetime" id="datetime" required>
-                <br><br>
-                <label for="subject">Subject:</label>
-                <input type="text" name="subject" id="subject" required>
-                <br><br>
-                <label for="Location">Location:</label>
-                <input type="text" name="location" id="location" required>
-                <br><br>
-                <button type="submit" name="insertmeeting" class="btn btn-md btn-secondary mb-4">Create New Meeting
-                </button>
-            </div>
-        </form>
-        <a href="schedulemeeting.php">
-            <button name="goBack" class="btn">Go Back</button>
-        </a>
-    </main>
-</div>
+    <div id="wrapper">
+        <main>
+            <a href="schedulemeeting.php">
+                <button name="goBack" class="btn">Go Back</button>
+            </a>
+            <h2>Schedule Meeting for <?php echo $student ?></h2>
+            <form method="post" action="">
+                <div>
+                    <label for="datetime">Date and Time:</label>
+                    <input type="datetime-local" name="datetime" id="datetime" required>
+                    <br><br>
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" id="subject" required>
+                    <br><br>
+                    <label for="Location">Location:</label>
+                    <input type="text" name="location" id="location" required>
+                    <br><br>
+                    <button type="submit" name="insertmeeting" class="btn btn-md btn-secondary mb-4">Create New Meeting
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
 <?php
 if (isset($_POST['insertmeeting'])) {
     $datetime = $_POST['datetime'];

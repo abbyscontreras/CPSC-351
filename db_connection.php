@@ -2,7 +2,7 @@
 $servername = "cnuarchway351.ca7hhpahr8lc.us-east-1.rds.amazonaws.com";
 $username = "admin";
 $password = "rootroot";
-$database = 'cpsc351';
+$database = 'cpsc351project';
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 // Check connection

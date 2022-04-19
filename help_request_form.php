@@ -9,6 +9,9 @@ if (isset($_POST["help"])) {
 ?>
     <div id="wrapper">
         <main>
+            <a href="help.php">
+                <button name="goBack" class="btn">Go Back</button>
+            </a>
             <h2>Submit a Help Request</h2>
             <p>Please describe the issue you are having with as much detail as possible in the space below.
                 We will do our best to get back to you in a timely manner.</p>
@@ -18,9 +21,6 @@ if (isset($_POST["help"])) {
                 <br><br>
                 <button name="help" type="submit" class="btn">Submit Request</button>
             </form>
-            <a href="help.php">
-                <button name="goBack" class="btn">Go Back</button>
-            </a>
         </main>
     </div>
 <?php

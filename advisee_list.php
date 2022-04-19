@@ -3,12 +3,11 @@ include('db_connection.php');
 global $conn;
 include('header.php');
 ?>
-<main>
-    <div id="wrapper">
+<div id="wrapper">
+    <main>
         <h1>My Advisees</h1>
         <p>
             <?php
-
             if (isset($_SESSION['user'])) {
                 $user = $_SESSION['user'];
                 $sql = mysqli_query($conn, "select * from Student where fk_facultyID='$user'");
@@ -17,13 +16,13 @@ include('header.php');
                     $lname = $row['last_name'];
                     $student_ID = $row['student_ID'];
                     $_SESSION['student_ID'] = $student_ID;
-                    echo '<div id="studentselect"><a href="student.php?student_select='.$student_ID.'"> <button id="student_select" type="submit" form="advissee" value="'.$student_ID.'">'.$fname . " " . $lname.'</button> </a></div>';
-
+                    echo '<div id="studentselect"><a href="student.php?student_select=' . $student_ID . '"> <button id="student_select" type="submit" form="advissee" value="' . $student_ID . '">' . $fname . " " . $lname . '</button> </a></div>';
                 }
             }
             ?>
         </p>
-    </div>
-</main>
+    </main>
+</div>
+
 
 

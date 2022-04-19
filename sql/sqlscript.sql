@@ -125,8 +125,8 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`advisingMeeting`
     `meetDateTIme`        DATETIME    NOT NULL,
     `meetLocation`        VARCHAR(45) NULL,
     `meetSubject`         VARCHAR(45) NULL,
-    `Student_student_ID`  INT(8)       NOT NULL,
-    `professor_facultyID` INT(8)       NOT NULL,
+    `Student_student_ID`  INT(8)      NOT NULL,
+    `professor_facultyID` INT(8)      NOT NULL,
     PRIMARY KEY (`Student_student_ID`, `professor_facultyID`, `meetDateTIme`),
     INDEX `fk_advisingMeeting_Student1_idx` (`Student_student_ID` ASC) VISIBLE,
     INDEX `fk_advisingMeeting_professor1_idx` (`professor_facultyID` ASC) VISIBLE,
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`advisingNotes`
 (
     `dateAndTime`                         DATETIME     NOT NULL,
     `meetNotes`                           VARCHAR(600) NULL,
-    `advisingMeeting_Student_student_ID`  INT(8)        NOT NULL,
+    `advisingMeeting_Student_student_ID`  INT(8)       NOT NULL,
     `advisingMeeting_professor_facultyID` INT(8)       NOT NULL,
     PRIMARY KEY (`dateAndTime`, `advisingMeeting_Student_student_ID`, `advisingMeeting_professor_facultyID`),
     INDEX `fk_advisingNotes_advisingMeeting1_idx` (`advisingMeeting_Student_student_ID` ASC,
@@ -189,13 +189,13 @@ DROP TABLE IF EXISTS `cpsc351`.`courseOverride`;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`courseOverride`
 (
-    `overrideID`               INT           NOT NULL,
-    `CRN`                      INT(4)        NULL,
-    `courseNumber`             VARCHAR(45)   NULL,
-    `courseSubject`            VARCHAR(45)   NULL,
-    `requestReason`            VARCHAR(200)  NULL,
-    `overrideRequested`        VARCHAR(45)   NULL,
-    `departmentHead_facultyID` INT(8)         NOT NULL,
+    `overrideID`               INT          NOT NULL,
+    `CRN`                      INT(4)       NULL,
+    `courseNumber`             VARCHAR(45)  NULL,
+    `courseSubject`            VARCHAR(45)  NULL,
+    `requestReason`            VARCHAR(200) NULL,
+    `overrideRequested`        VARCHAR(45)  NULL,
+    `departmentHead_facultyID` INT(8)       NOT NULL,
     PRIMARY KEY (`overrideID`, `departmentHead_facultyID`),
     INDEX `fk_courseOverride_departmentHead1_idx` (`departmentHead_facultyID` ASC) VISIBLE,
     UNIQUE INDEX `overrideID_UNIQUE` (`overrideID` ASC) VISIBLE,
@@ -215,8 +215,8 @@ DROP TABLE IF EXISTS `cpsc351`.`courseOverrideEvent`;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`courseOverrideEvent`
 (
-    `Student_student_ID`        INT(8)     NOT NULL,
-    `courseOverride_overrideID` INT        NOT NULL,
+    `Student_student_ID`        INT(8)   NOT NULL,
+    `courseOverride_overrideID` INT      NOT NULL,
     `dateAndTime`               DATETIME NULL,
     PRIMARY KEY (`Student_student_ID`, `courseOverride_overrideID`),
     INDEX `fk_Student_has_courseOverride_courseOverride1_idx` (`courseOverride_overrideID` ASC) VISIBLE,
@@ -248,21 +248,26 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`studentSchedule`
     `courseNumber`       INT(4)       NULL,
     `courseSubject`      VARCHAR(45)  NULL,
     `courseTitle`        VARCHAR(45)  NULL,
-    `professor`          VARCHAR(45) NULL,
-    `day`        VARCHAR(45) NULL,
-    `time`        VARCHAR(45) NULL,
-    `location`           VARCHAR(45) NULL,
+    `professor`          VARCHAR(45)  NULL,
+    `day`                VARCHAR(45)  NULL,
+    `time`               VARCHAR(45)  NULL,
+    `location`           VARCHAR(45)  NULL,
     `credits`            INT(2)       NULL,
-    `grade`              VARCHAR(2)  NULL,
-    `year` INT(8)        NOT NULL,
-    `term` VARCHAR(255)        NOT NULL,
+    `grade`              VARCHAR(2)   NULL,
+    `year`               INT(8)       NOT NULL,
+    `term`               VARCHAR(255) NOT NULL,
     `Student_student_ID` INT(8)       NOT NULL,
 
-     PRIMARY KEY (`year`, `term`, `CRN`,`Student_student_ID`),
+    PRIMARY KEY (`year`, `term`, `CRN`, `Student_student_ID`),
     INDEX `fk_courseSchedule_Student1_idx` (`Student_student_ID` ASC) VISIBLE,
     CONSTRAINT `fk_courseSchedule_Student1`
         FOREIGN KEY (`Student_student_ID`)
             REFERENCES `cpsc351`.`Student` (`student_ID`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT `fk_courseSchedule_CRN`
+        FOREIGN KEY (`CRN`)
+            REFERENCES `cpsc351`.`coursesAvailable` (`CRN`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 )
@@ -276,19 +281,19 @@ DROP TABLE IF EXISTS `cpsc351`.`coursesAvailable`;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`coursesAvailable`
 (
-    `CRN`                               INT(4)       NOT NULL,
-    `course`                      VARCHAR(255)       NULL,
-    `section`                       VARCHAR(45)  NULL,
-    `courseTitle`                       VARCHAR(45)  NULL,
-    `credits`                       VARCHAR(45)  NULL,
-    `areaofLLC`                       VARCHAR(45)  NULL,
-    `type`                       VARCHAR(45)  NULL,
-    `days`                       VARCHAR(45)  NULL,
-    `time`                       VARCHAR(45)  NULL,
-    `location`                       VARCHAR(45)  NULL,
-    `instructor`                       VARCHAR(45)  NULL,
-    `seatsstillavailable`                       VARCHAR(45)  NULL,
-    `status`                       VARCHAR(45)  NULL,
+    `CRN`                 INT(4)       NOT NULL,
+    `course`              VARCHAR(255) NULL,
+    `section`             VARCHAR(45)  NULL,
+    `courseTitle`         VARCHAR(45)  NULL,
+    `credits`             VARCHAR(45)  NULL,
+    `areaofLLC`           VARCHAR(45)  NULL,
+    `type`                VARCHAR(45)  NULL,
+    `days`                VARCHAR(45)  NULL,
+    `time`                VARCHAR(45)  NULL,
+    `location`            VARCHAR(45)  NULL,
+    `instructor`          VARCHAR(45)  NULL,
+    `seatsstillavailable` VARCHAR(45)  NULL,
+    `status`              VARCHAR(45)  NULL,
     PRIMARY KEY (`CRN`),
     UNIQUE INDEX `CRN_UNIQUE` (`CRN` ASC) VISIBLE
 #     UNIQUE INDEX `courseSchedule_CRN_UNIQUE` (`courseSchedule_CRN` ASC) VISIBLE,
@@ -309,11 +314,13 @@ DROP TABLE IF EXISTS `cpsc351`.`degreeRequirements`;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`degreeRequirements`
 (
-    `CouseNumber`   INT(4)       NOT NULL,
-    `CourseSubject` VARCHAR(45)  NOT NULL,
-    `courseTitle`   VARCHAR(45)  NULL,
-    `credits`       INT(2)       NULL,
-    PRIMARY KEY (`CouseNumber`, `CourseSubject`)
+    `CouseNumber`   INT(4)      NOT NULL,
+    `CourseSubject` VARCHAR(45) NOT NULL,
+    `courseTitle`   VARCHAR(45) NULL,
+    `credits`       INT(2)      NULL,
+    `year`                                               INT(8)      NOT NULL,
+
+    PRIMARY KEY (`CouseNumber`, `CourseSubject`,`year`)
 )
     ENGINE = InnoDB;
 
@@ -325,13 +332,13 @@ DROP TABLE IF EXISTS `cpsc351`.`coursesAvailable_has_degreeRequirements`;
 
 CREATE TABLE IF NOT EXISTS `cpsc351`.`coursesAvailable_has_degreeRequirements`
 (
-    `coursesAvailable_CRN`                               INT(4)       NOT NULL,
-    `coursesAvailable_courseSchedule_CRN`                INT(4)       NOT NULL,
-    `coursesAvailable_courseSchedule_Student_student_ID` INT(8)       NOT NULL,
-    `degreeRequirements_CouseNumber`                     INT(4)       NOT NULL,
-    `degreeRequirements_CourseSubject`                   VARCHAR(45)  NOT NULL,
-    `semesterTerm`                                       VARCHAR(10)  NOT NULL,
-    `year`                                               INT(8)   NOT NULL,
+    `coursesAvailable_CRN`                               INT(4)      NOT NULL,
+    `coursesAvailable_courseSchedule_CRN`                INT(4)      NOT NULL,
+    `coursesAvailable_courseSchedule_Student_student_ID` INT(8)      NOT NULL,
+    `degreeRequirements_CouseNumber`                     INT(4)      NOT NULL,
+    `degreeRequirements_CourseSubject`                   VARCHAR(45) NOT NULL,
+    `semesterTerm`                                       VARCHAR(10) NOT NULL,
+    `year`                                               INT(8)      NOT NULL,
     PRIMARY KEY (`coursesAvailable_CRN`, `coursesAvailable_courseSchedule_CRN`,
                  `coursesAvailable_courseSchedule_Student_student_ID`, `degreeRequirements_CouseNumber`,
                  `degreeRequirements_CourseSubject`),
@@ -342,12 +349,11 @@ CREATE TABLE IF NOT EXISTS `cpsc351`.`coursesAvailable_has_degreeRequirements`
                                                                              `coursesAvailable_courseSchedule_CRN` ASC,
                                                                              `coursesAvailable_courseSchedule_Student_student_ID`
                                                                              ASC) VISIBLE,
-#     CONSTRAINT `fk_coursesAvailable_has_degreeRequirements_coursesAvailable1`
-#         FOREIGN KEY (`coursesAvailable_CRN`, `year`,
-#                      `semesterTerm`)
-#             REFERENCES `cpsc351`.`coursesAvailable` (`CRN`, `year`, `term`)
-#             ON DELETE NO ACTION
-#             ON UPDATE NO ACTION,
+    CONSTRAINT `fk_coursesAvailable_has_degreeRequirements_coursesAvailable1`
+        FOREIGN KEY (`coursesAvailable_CRN`)
+            REFERENCES `cpsc351`.`coursesAvailable` (`CRN`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
     CONSTRAINT `fk_coursesAvailable_has_degreeRequirements_degreeRequirements1`
         FOREIGN KEY (`degreeRequirements_CouseNumber`, `degreeRequirements_CourseSubject`)
             REFERENCES `cpsc351`.`degreeRequirements` (`CouseNumber`, `CourseSubject`)
@@ -373,7 +379,7 @@ values (00123456, 'Yes', 'Michael', 'Lapke', 'michael.lapke@cnu.edu', '(757) 594
         'CPSC 350 and CPSC 351',
         '/Users/abigailcontreras/PhpstormProjects/CPSC-351/images/lapke_cnu_profile_picture.jpeg');
 insert into professor
-values (101010, 'Yes', 'DBA', 'Admin', 'dbaadmin@cnu.edu', '(111) 111-1111', 'Admin', 'Admin', 'Admin', '');
+values (101010, 'Yes', 'DBA', 'Admin', 'dbaadmin@cnu.edu', '(111) 111-1111', 'Admin', 'Admin', 'Admin', '');studentSchedule
 insert into professor
 values (987654, 'Yes', 'Albus', 'Dumbledore', 'albus.dumbledore@cnu.edu', '(234) 456-6789', 'Luter Hall 101',
         'Hogwarts Headmaster.', 'Wizardry 101',
@@ -488,6 +494,110 @@ VALUES ('2022-04-21 12:00:00', 'Had a few questions concerning graduation approa
 INSERT INTO advisingNotes
 VALUES ('2022-07-21 12:00:00', 'Wanted to ask advice about internships. ', 293846, 987654);
 
+-- insert into studentPin table --
+INSERT INTO studentPin
+VALUES (123654, 'Spring 2022', 16239, 'Fall 2022', 987654);
+INSERT INTO studentPin
+VALUES (226098, 'Spring 2022', 970887, 'Fall 2022', 123456);
+INSERT INTO studentPin
+VALUES (293846, 'Spring 2022', 293846, 'Fall 2022', 987654);
+INSERT INTO studentPin
+VALUES (432268, 'Spring 2022', 970886, 'Fall 2022', 123456);
+INSERT INTO studentPin
+VALUES (526713, 'Spring 2022', 63725, 'Fall 2022', 987654);
+INSERT INTO studentPin
+VALUES (567291, 'Spring 2022', 26349, 'Fall 2022', 987654);
+INSERT INTO studentPin
+VALUES (632787, 'Spring 2022', 976980, 'Fall 2022', 123456);
+INSERT INTO studentPin
+VALUES (636727, 'Spring 2022', 975829, 'Fall 2022', 123456);
+INSERT INTO studentPin
+VALUES (773627, 'Spring 2022', 970888, 'Fall 2022', 123456);
+
+-- insert into studentSchedule table --
+
+insert into studentSchedule
+VALUES (8558, 109, 'BIOL', 'General Biology Laboratory', 'Loftis, Jon', 'M', '1800-1950', 'FORBES 1027', 1, null, 2022,
+        'Spring', 970886);
+insert into studentSchedule
+VALUES (8488, 108, 'BIOL', 'General Biology II', 'Waldien, David', 'TR', '1800-1915', 'LUTR 121', 3, null, 2022,
+        'Spring', 970886);
+insert into studentSchedule
+VALUES (8251, 141, 'PHYS', 'How Things Work', 'Cole, Leon', 'TR', '1500-1615', 'LUTR 269', 3, null, 2022, 'Spring',
+        970886);
+insert into studentSchedule
+VALUES (8171, 371, 'CPEN', 'WI: Computer Ethics', 'Valdez, Katherine', 'MW', '1600-1650', 'LUTR 322', 3, null, 2022,
+        'Spring', 970886);
+insert into studentSchedule
+VALUES (8175, 428, 'CYBR', 'Network Security and Cryptography', 'Kreider, Christopher', 'TR', '1100-1215', 'LUTR 258',
+        3, null, 2022, 'Spring', 970886);
+insert into studentSchedule
+VALUES (8238, 351, 'CPSC', 'Info Sys Design/Implementation', 'Lapke, Michael', 'TR', '1630-1745', 'LUTR 258', 3, null,
+        2022, 'Spring', 970886);
+insert into studentSchedule
+VALUES (8874, 204, 'DANC', 'Ballet I', 'Lent, Jennifer', 'MW', '1300-1415', 'FERG T177', 3, null, 2022, 'Spring',
+        970887);
+insert into studentSchedule
+VALUES (8244, 440, 'CPSC', 'Database Management Systems', 'Desphande, Priya', 'MWF', '1300-1350', 'LUTR 258', 3, null,
+        2022, 'Spring', 970887);
+insert into studentSchedule
+VALUES (8238, 351, 'CPSC', 'Info Sys Design/Implementation', 'Lapke, Michael', 'TR', '1630-1745', 'LUTR 258', 3, null,
+        2022, 'Spring', 970887);
+insert into studentSchedule
+VALUES (8236, 335, 'CPSC', 'Data Communication Systems', 'Siasi, Nazli', 'MW', '1800-1915', 'LUTR 121', 3, null, 2022,
+        'Spring', 970887);
+insert into studentSchedule
+VALUES (8040, 231, 'BUSN', 'Applied Business Statistics', 'Sixbey, Shannon', 'TR', '1500-1615', 'LUTR 109', 3, null,
+        2022, 'Spring', 970887);
+insert into studentSchedule
+VALUES (8230, 255, 'CPSC', 'Programming for Applications', 'McElfresh, Scott', 'MWF', '1100-1150', 'LUTR 323', 3, null,
+        2022, 'Spring', 970888);
+insert into studentSchedule
+VALUES (8950, 200, 'AMST', 'Evolution-American Experiment', 'Morrison, Jeffry', 'TR', '1100-1215', 'MCM 257', 3, null,
+        2022, 'Spring', 970888);
+insert into studentSchedule
+VALUES (8238, 351, 'CPSC', 'Info Sys Design/Implementation', 'Lapke, Michael', 'TR', '1630-1745', 'LUTR 258', 3, null,
+        2022, 'Spring', 970888);
+insert into studentSchedule
+VALUES (8216, 216, 'CPSC', 'Multimedia and Web Publishing', 'Baird, Amy', 'MWF', '0900-0950', 'LUTR 109', 3, null, 2022,
+        'Spring', 970888);
+insert into studentSchedule
+VALUES (8065, 303, 'BUSN', 'Fundamentals of Business', 'McGreevy, Priscilla', 'MWF', '1000-1050', 'LUTR 242', 3, null,
+        2022, 'Spring', 970888);
+insert into studentSchedule
+VALUES (8175, 428, 'CYBR', 'Network Security and Cryptography', 'Kreider, Christopher', 'TR', '1100-1215', 'LUTR 258',
+        3, null, 2022, 'Spring', 975829);
+insert into studentSchedule
+VALUES (8238, 351, 'CPSC', 'Info Sys Design/Implementation', 'Lapke, Michael', 'TR', '1630-1745', 'LUTR 258', 3, null,
+        2022, 'Spring', 975829);
+insert into studentSchedule
+VALUES (8247, 445, 'CPSC', 'WI: Information Systems Lab', 'Kreider, Christopher', 'MWF', '1400-1450', 'LUTR 323', 3,
+        null, 2022, 'Spring', 975829);
+insert into studentSchedule
+VALUES (8134, 300, 'FINC', 'Managerial Finance', 'Guha, Sanjib', 'MW', '1600-1715', 'LUTR 123', 3, null, 2022, 'Spring',
+        975829);
+insert into studentSchedule
+VALUES (8106, 448, 'BUSN', 'Enterprise Management', 'Wilson, Robert', 'TR', '0930-1045', 'MCM 110', 3, null, 2022,
+        'Spring', 975829);
+insert into studentSchedule
+VALUES (8074, 305, 'BUSN', 'Introduction to Data Analytics', 'Lamprecht, Donna', 'TR', '1800-1915', 'LUTR 105', 3, null,
+        2022, 'Spring', 975829);
+insert into studentSchedule
+VALUES (8216, 216, 'CPSC', 'Multimedia and Web Publishing', 'Baird, Amy', 'MWF', '0900-0950', 'LUTR 109', 3, null, 2022,
+        'Spring', 976980);
+insert into studentSchedule
+VALUES (8175, 428, 'CYBR', 'Network Security and Cryptography', 'Kreider, Christopher', 'TR', '1100-1215', 'LUTR 258',
+        3, null, 2022, 'Spring', 976980);
+insert into studentSchedule
+VALUES (8238, 351, 'CPSC', 'Info Sys Design/Implementation', 'Lapke, Michael', 'TR', '1630-1745', 'LUTR 258', 3, null,
+        2022, 'Spring', 976980);
+insert into studentSchedule
+VALUES (8169, 371, 'CPEN', 'WI: Computer Ethics', 'Valdez, Katherine', 'MW', '1400-1450', 'LUTR 322', 3, null, 2022,
+        'Spring', 976980);
+insert into studentSchedule
+VALUES (8065, 303, 'BUSN', 'Fundamentals of Business', 'McGreevy, Priscilla', 'MWF', '1000-1050', 'LUTR 242', 3, null,
+        2022, 'Spring', 976980);
+
 
 
 select *
@@ -517,12 +627,31 @@ ALTER TABLE advisingNotes
     DROP FOREIGN KEY advisingMeeting_professor_facultyID_UNIQUE;
 
 
-select * from advisingNotes where advisingMeeting_Student_student_ID='';
+select *
+from advisingNotes
+where advisingMeeting_Student_student_ID = '';
 
-select distinct areaofLLC from coursesAvailable;
+select distinct areaofLLC
+from coursesAvailable;
 
-select distinct LEFT(course,4) as course from coursesAvailable;
+select distinct LEFT(course, 4) as course
+from coursesAvailable;
 
-Select * from coursesAvailable where areaofLLC = 'AINW' order by course asc;
+Select *
+from coursesAvailable
+where areaofLLC = 'AINW'
+order by course asc;
 
-Select * from studentSchedule where Student_student_ID='975829' and day like 'T%' order by time ASC
+Select *
+from studentSchedule
+where Student_student_ID = '975829'
+  and day like 'T%'
+order by time ASC;
+
+
+ALTER TABLE studentPin
+    ADD professor_facultyID INT(8) NULL,
+    ADD FOREIGN KEY (professor_facultyID) REFERENCES professor (facultyID);
+
+alter table studentSchedule
+add foreign key (CRN) references coursesAvailable(CRN);

@@ -6,6 +6,9 @@ $user = $_SESSION['user'];
 ?>
     <div id="wrapper">
         <main>
+            <a href="viewmeetings.php">
+                <button name="goBack" class="btn">Go Back</button>
+            </a>
             <h2>Cancel Meeting</h2>
             <form method="post">
                 <div>
@@ -27,9 +30,6 @@ $user = $_SESSION['user'];
                     </button>
                 </div>
             </form>
-            <a href="viewmeetings.php">
-                <button name="goBack" class="btn">Go Back</button>
-            </a>
         </main>
     </div>
 <?php

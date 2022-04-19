@@ -5,6 +5,9 @@ include('header.php');
 ?>
 <div id="wrapper">
     <main>
+        <a href="studentmeetingnotes.php">
+            <button name="goBack" class="btn">Go Back</button>
+        </a>
         <h2>Meeting Important Notes</h2>
         <table>
             <tr>
@@ -30,9 +33,6 @@ include('header.php');
         <br><br>
         <a href="updatenotes.php">
             <button name="update" class="btn">Update Notes</button>
-        </a>
-        <a href="studentmeetingnotes.php">
-            <button name="goBack" class="btn">Go Back</button>
         </a>
     </main>
 </div>
