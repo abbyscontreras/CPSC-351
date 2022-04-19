@@ -480,3 +480,5 @@ VALUES (8169, 371, 'CPEN', 'WI: Computer Ethics', 'Valdez, Katherine', 'MW', '14
 insert into studentSchedule
 VALUES (8065, 303, 'BUSN', 'Fundamentals of Business', 'McGreevy, Priscilla', 'MWF', '1000-1050', 'LUTR 242', 3, null,
         2022, 'Spring', 976980);
+
+-- for coursesAvailable, run the included coursesAvailable.csv file to upload data--
