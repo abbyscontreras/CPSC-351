@@ -43,6 +43,10 @@ while ($row = mysqli_fetch_array($sqlpin)) {
 }
 ?>
 <div id="wrapper">
+    <main id="scrolling">
+        <a href="advisee_list.php">
+            <button name="goBack" class="btn">Go Back</button>
+        </a>
     <div id="namepic">
         <h2><?php echo $fname . " " . $lname ?><img src="images/blank_profile_icon.jpg" alt="blank picture"></h2>
 
@@ -185,6 +189,6 @@ while ($row = mysqli_fetch_array($sqlpin)) {
 //            }
 //
 //            ?>
-<!--        </table>-->
     </div>
+    </main>
 </div>
