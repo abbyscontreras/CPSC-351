@@ -104,6 +104,7 @@ include('header.php');
                         echo $row['instructor'];
                         echo "</td></tr>";
                     }
+                    unset($_SESSION['all']);
                 }
                 ?>
             </table>
