@@ -37,7 +37,8 @@ while ($row = mysqli_fetch_array($sqlnotes)) {
 ?>
 <div id="wrapper">
     <div id="namepic">
-        <h2><?php echo $fname . " " . $lname ?></h2>
+        <h2><?php echo $fname . " " . $lname ?><img src="images/blank_profile_icon.jpg" alt="blank picture"></h2>
+
         <table class="profiletable">
             <tr>
                 <th></th>
