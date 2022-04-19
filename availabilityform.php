@@ -34,7 +34,7 @@ include('header.php');
                     }
                     ?>
                 </select><br><br>
-                <button type="submit" name="llcsubmit" class="btn btn-md btn-secondary mb-4">View Avaliable Courses
+                <button type="submit" name="llcsubmit" class="btn btn-md btn-secondary mb-4">View Available Courses
                 </button>
             </form>
             <p>OR</p>
