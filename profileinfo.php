@@ -20,8 +20,7 @@ global $conn;
                     }
                 }
                 ?></h1>
-            <!--            <img src="" alt="">-->
-            <!--            <img src="images/lapke_cnu_profile_picture.jpeg" alt="Michael Lapke">-->
+            <img src="images/blank_profile_icon.jpg" alt="blank picture">
         </section>
         <section>
             <h3>Biography</h3>
